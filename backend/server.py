@@ -89,7 +89,7 @@ manager = ConnectionManager()
 # F1 Data Service
 class F1DataService:
     def __init__(self):
-        self.base_url = "http://ergast.com/api/f1"
+        self.base_url = "http://api.jolpi.ca/ergast/f1"
         
     async def get_current_standings(self):
         """Get current driver standings"""
