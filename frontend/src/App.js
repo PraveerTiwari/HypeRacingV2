@@ -102,6 +102,18 @@ const HomePage = () => {
       </section>
 
       <div className="home-grid">
+        {/* Live Dashboard Link - Now at top */}
+        <Link to="/live" className="dashboard-link">
+          <NeonPanel color="#DC143C" className="dashboard-panel">
+            <h2 className="panel-title">LIVE DASHBOARD</h2>
+            <p className="panel-description">Real-time race positions and timing</p>
+            <div className="live-indicator">
+              <div className="live-dot"></div>
+              <span>LIVE DATA</span>
+            </div>
+          </NeonPanel>
+        </Link>
+
         {/* News Section */}
         <NeonPanel className="news-section" color="#00D2BE">
           <h2 className="section-title">F1 NEWS</h2>
@@ -114,18 +126,6 @@ const HomePage = () => {
             ))}
           </div>
         </NeonPanel>
-
-        {/* Live Dashboard Link */}
-        <Link to="/live" className="dashboard-link">
-          <NeonPanel color="#DC143C" className="dashboard-panel">
-            <h2 className="panel-title">LIVE DASHBOARD</h2>
-            <p className="panel-description">Real-time race positions and timing</p>
-            <div className="live-indicator">
-              <div className="live-dot"></div>
-              <span>LIVE DATA</span>
-            </div>
-          </NeonPanel>
-        </Link>
 
         {/* Top Drivers Preview */}
         <NeonPanel className="drivers-preview" color="#FF8700">
