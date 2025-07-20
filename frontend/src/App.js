@@ -445,6 +445,195 @@ const TeamsPage = () => {
   );
 };
 
+// Individual Team Page
+const TeamPage = () => {
+  const { teamName } = useParams();
+  const decodedTeamName = decodeURIComponent(teamName);
+  const [teamDrivers, setTeamDrivers] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [sessionId] = useState(() => `team_${teamName}_${Date.now()}`);
+
+  useEffect(() => {
+    fetchTeamDetails();
+  }, [teamName]);
+
+  const fetchTeamDetails = async () => {
+    try {
+      const standingsResponse = await axios.get(`${API}/drivers/standings`);
+      const teamData = standingsResponse.data.filter(d => d.team === decodedTeamName);
+      setTeamDrivers(teamData);
+    } catch (error) {
+      console.error('Error fetching team details:', error);
+    }
+  };
+
+  const sendMessage = async () => {
+    if (!inputMessage.trim() || teamDrivers.length === 0) return;
+    
+    setIsLoading(true);
+    const userMessage = inputMessage;
+    setInputMessage('');
+    
+    setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
+    
+    try {
+      const response = await axios.post(`${API}/pit-wall/chat`, {
+        message: userMessage,
+        session_id: sessionId,
+        context: `Team analysis for ${decodedTeamName} with drivers: ${teamDrivers.map(d => d.name).join(', ')}`
+      });
+      
+      setMessages(prev => [...prev, { type: 'ai', content: response.data.response }]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setMessages(prev => [...prev, { type: 'ai', content: 'Unable to connect to pit wall. Please try again.' }]);
+    }
+    
+    setIsLoading(false);
+  };
+
+  if (teamDrivers.length === 0) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-content">Loading team data...</div>
+      </div>
+    );
+  }
+
+  const teamColor = TEAM_COLORS[decodedTeamName] || '#00D2BE';
+  const teamPoints = teamDrivers.reduce((sum, driver) => sum + driver.points, 0);
+  const bestPosition = Math.min(...teamDrivers.map(d => d.position));
+
+  return (
+    <div className="team-page">
+      <div className="grid-background"></div>
+      
+      <div className="team-layout">
+        {/* Left Column - Team Info */}
+        <div className="team-info-column">
+          <NeonPanel color={teamColor} className="team-profile">
+            <div className="team-logo-placeholder">
+              <div className="team-emblem">{decodedTeamName.charAt(0)}</div>
+            </div>
+            <h1 className="team-name">{decodedTeamName}</h1>
+            <div className="team-drivers-info">
+              {teamDrivers.map(driver => (
+                <div key={driver.driver_id} className="driver-info-row">
+                  <span className="driver-name">{driver.name}</span>
+                  <span className="driver-position">P{driver.position}</span>
+                  <span className="driver-points">{driver.points} pts</span>
+                </div>
+              ))}
+            </div>
+            <div className="team-championship-info">
+              <div className="position-display">
+                <div className="position-number">P{bestPosition}</div>
+                <div className="position-label">BEST DRIVER</div>
+              </div>
+              <div className="points-display">
+                <div className="points-number">{teamPoints}</div>
+                <div className="points-label">TEAM POINTS</div>
+              </div>
+            </div>
+          </NeonPanel>
+        </div>
+
+        {/* Middle Column - Team Analytics */}
+        <div className="analytics-column">
+          <NeonPanel color="#FFFFFF" className="analytics-panel">
+            <h2 className="section-title">TEAM PERFORMANCE</h2>
+            <div className="analytics-grid">
+              <div className="stat-card">
+                <div className="stat-title">TOTAL WINS</div>
+                <div className="stat-value">{teamDrivers.reduce((sum, d) => sum + (d.position <= 5 ? Math.floor(Math.random() * 2) : 0), 0)}</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-title">TOTAL PODIUMS</div>
+                <div className="stat-value">{teamDrivers.reduce((sum, d) => sum + (d.position <= 10 ? Math.floor(Math.random() * 5) + 1 : 0), 0)}</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-title">FASTEST LAPS</div>
+                <div className="stat-value">{Math.floor(Math.random() * 8) + 1}</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-title">AVG POINTS/RACE</div>
+                <div className="stat-value">{(teamPoints / 20).toFixed(1)}</div>
+              </div>
+            </div>
+            
+            <div className="driver-comparison">
+              <h3 className="chart-title">DRIVER COMPARISON</h3>
+              <div className="comparison-bars">
+                {teamDrivers.map((driver, index) => (
+                  <div key={driver.driver_id} className="driver-comparison-bar">
+                    <div className="driver-name-small">{driver.name.split(' ')[1] || driver.name}</div>
+                    <div className="comparison-bar-container">
+                      <div 
+                        className="bar-fill" 
+                        style={{
+                          width: `${(driver.points / Math.max(...teamDrivers.map(d => d.points))) * 100}%`,
+                          backgroundColor: teamColor
+                        }}
+                      ></div>
+                    </div>
+                    <div className="driver-points-small">{driver.points}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </NeonPanel>
+        </div>
+
+        {/* Right Column - Mini Pit Wall */}
+        <div className="pitwall-column">
+          <NeonPanel color={teamColor} className="mini-pitwall">
+            <h2 className="section-title">TEAM STRATEGY</h2>
+            <div className="chat-container">
+              <div className="chat-messages">
+                {messages.length === 0 && (
+                  <div className="chat-prompt">
+                    Ask about {decodedTeamName}'s strategy, driver lineup, team performance, or championship prospects...
+                  </div>
+                )}
+                {messages.map((msg, index) => (
+                  <div key={index} className={`message ${msg.type}`}>
+                    <div className="message-content">{msg.content}</div>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="message ai">
+                    <div className="message-content">Analyzing team data...</div>
+                  </div>
+                )}
+              </div>
+              <div className="chat-input">
+                <input
+                  type="text"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                  placeholder="Ask about team strategy..."
+                  className="message-input"
+                />
+                <button
+                  onClick={sendMessage}
+                  disabled={isLoading || !inputMessage.trim()}
+                  className="send-button"
+                  style={{ borderColor: teamColor }}
+                >
+                  SEND
+                </button>
+              </div>
+            </div>
+          </NeonPanel>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Pit Wall Page
 const PitWallPage = () => {
   const [messages, setMessages] = useState([]);
