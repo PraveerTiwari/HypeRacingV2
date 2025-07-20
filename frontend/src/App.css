@@ -1261,17 +1261,8 @@ body {
     padding: 1rem;
   }
   
-  .dashboard-link {
-    order: 1;
-  }
-  
-  .news-section {
-    order: 2;
-    grid-row: auto;
-  }
-  
-  .drivers-preview {
-    order: 3;
+  .dashboard-link, .news-section {
+    max-width: 100%;
   }
   
   .driver-layout {
