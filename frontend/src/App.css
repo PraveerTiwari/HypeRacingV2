@@ -411,30 +411,52 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
 }
 
 .driver-card {
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.driver-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--neon-color);
+  opacity: 0.8;
 }
 
 .driver-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 135, 0, 0.15);
 }
 
 .driver-card-content {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .driver-position-badge {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--neon-orange);
-  min-width: 60px;
+  min-width: 80px;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 135, 0, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 135, 0, 0.3);
 }
 
 .driver-details {
@@ -442,38 +464,50 @@ body {
 }
 
 .driver-name {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 900;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .driver-team {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
 .driver-nationality {
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .driver-stats {
   text-align: center;
+  padding: 1rem;
+  background: rgba(0, 210, 190, 0.05);
+  border-radius: 12px;
+  border: 2px solid rgba(0, 210, 190, 0.2);
 }
 
 .points-display {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: var(--neon-blue);
   line-height: 1;
+  display: block;
 }
 
 .points-label {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
 }
 
 /* Individual Driver Page */
