@@ -1266,7 +1266,7 @@ body {
     padding: 1rem;
   }
   
-  .dashboard-link, .news-section {
+  .dashboard-link, .news-section, .drivers-preview {
     max-width: 100%;
   }
   
