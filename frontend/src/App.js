@@ -32,6 +32,7 @@ const Navigation = () => {
         
         <div className="nav-links">
           <Link to="/" className="nav-link">HOME</Link>
+          <Link to="/live" className="nav-link">DASHBOARD</Link>
           <Link to="/drivers" className="nav-link">DRIVERS</Link>
           <Link to="/teams" className="nav-link">TEAMS</Link>
           <Link to="/pitwall" className="nav-link">PIT WALL</Link>
