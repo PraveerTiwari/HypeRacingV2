@@ -122,7 +122,7 @@ class F1DataService:
     
     async def get_recent_races(self, limit=10):
         """Get recent race results"""
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
             try:
                 response = await client.get(f"{self.base_url}/current/results.json?limit={limit}")
                 data = response.json()
