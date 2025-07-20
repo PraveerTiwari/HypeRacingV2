@@ -630,7 +630,295 @@ const TeamPage = () => {
   );
 };
 
-// Pit Wall Page
+// Live Dashboard Page
+const LiveDashboardPage = () => {
+  const [liveData, setLiveData] = useState(null);
+  const [isConnected, setIsConnected] = useState(false);
+  const [driverRadio, setDriverRadio] = useState([]);
+  const [raceUpdates, setRaceUpdates] = useState([]);
+  const [telemetryData, setTelemetryData] = useState({});
+
+  useEffect(() => {
+    // Initialize SignalR connection simulation
+    connectToF1SignalR();
+    return () => disconnectF1SignalR();
+  }, []);
+
+  const connectToF1SignalR = async () => {
+    setIsConnected(true);
+    
+    // Simulate F1 SignalR data updates
+    const interval = setInterval(() => {
+      // Update positions
+      setLiveData({
+        sessionTime: formatTime(Date.now()),
+        sessionType: 'RACE',
+        trackStatus: 'GREEN',
+        positions: generateLivePositions(),
+        weather: {
+          airTemp: Math.floor(Math.random() * 10) + 20,
+          trackTemp: Math.floor(Math.random() * 15) + 35,
+          humidity: Math.floor(Math.random() * 30) + 40,
+          windSpeed: Math.floor(Math.random() * 20) + 5
+        }
+      });
+
+      // Update telemetry
+      setTelemetryData(generateTelemetryData());
+
+      // Occasional radio messages
+      if (Math.random() < 0.3) {
+        addRadioMessage();
+      }
+
+      // Occasional race updates
+      if (Math.random() < 0.2) {
+        addRaceUpdate();
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  };
+
+  const disconnectF1SignalR = () => {
+    setIsConnected(false);
+  };
+
+  const formatTime = (timestamp) => {
+    const now = new Date(timestamp);
+    const minutes = Math.floor((now.getTime() % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((now.getTime() % (1000 * 60)) / 1000);
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const generateLivePositions = () => {
+    const drivers = [
+      { pos: 1, driver: 'VER', team: 'Red Bull', gap: '+0.000', lastLap: '1:23.456', sector: 'S2' },
+      { pos: 2, driver: 'PIA', team: 'McLaren', gap: '+0.234', lastLap: '1:23.690', sector: 'S1' },
+      { pos: 3, driver: 'NOR', team: 'McLaren', gap: '+1.567', lastLap: '1:25.023', sector: 'S3' },
+      { pos: 4, driver: 'RUS', team: 'Mercedes', gap: '+2.890', lastLap: '1:24.346', sector: 'S2' },
+      { pos: 5, driver: 'LEC', team: 'Ferrari', gap: '+3.456', lastLap: '1:24.912', sector: 'S1' },
+      { pos: 6, driver: 'HAM', team: 'Mercedes', gap: '+4.123', lastLap: '1:25.579', sector: 'S3' },
+      { pos: 7, driver: 'SAI', team: 'Ferrari', gap: '+5.789', lastLap: '1:26.234', sector: 'S2' },
+      { pos: 8, driver: 'PER', team: 'Red Bull', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' }
+    ];
+
+    // Add some randomness to gaps and lap times
+    return drivers.map(driver => ({
+      ...driver,
+      gap: driver.pos === 1 ? '+0.000' : `+${(Math.random() * 10 + driver.pos * 0.5).toFixed(3)}`,
+      lastLap: `1:2${Math.floor(Math.random() * 7) + 3}.${Math.floor(Math.random() * 999).toString().padStart(3, '0')}`
+    }));
+  };
+
+  const generateTelemetryData = () => {
+    return {
+      VER: { speed: Math.floor(Math.random() * 50) + 280, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
+      PIA: { speed: Math.floor(Math.random() * 50) + 275, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
+      NOR: { speed: Math.floor(Math.random() * 50) + 270, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 }
+    };
+  };
+
+  const addRadioMessage = () => {
+    const messages = [
+      { driver: 'VER', message: 'Box this lap, box box!', timestamp: Date.now() },
+      { driver: 'PIA', message: 'Tires are feeling good, great grip.', timestamp: Date.now() },
+      { driver: 'NOR', message: 'DRS not working properly.', timestamp: Date.now() },
+      { driver: 'RUS', message: 'Traffic ahead, losing time.', timestamp: Date.now() },
+      { driver: 'LEC', message: 'Push now, we can catch them.', timestamp: Date.now() }
+    ];
+    
+    const newMessage = messages[Math.floor(Math.random() * messages.length)];
+    setDriverRadio(prev => [newMessage, ...prev.slice(0, 9)]);
+  };
+
+  const addRaceUpdate = () => {
+    const updates = [
+      'Virtual Safety Car deployed',
+      'DRS enabled',
+      'Yellow flag in sector 2',
+      'Pit lane open',
+      'Track conditions improving',
+      'Rain expected in 10 minutes'
+    ];
+    
+    const newUpdate = {
+      message: updates[Math.floor(Math.random() * updates.length)],
+      timestamp: Date.now()
+    };
+    
+    setRaceUpdates(prev => [newUpdate, ...prev.slice(0, 7)]);
+  };
+
+  if (!liveData) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-content">Connecting to F1 Live Timing...</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="live-dashboard-page">
+      <div className="grid-background"></div>
+      
+      <div className="dashboard-header">
+        <div className="session-info">
+          <h1 className="session-title">{liveData.sessionType}</h1>
+          <div className="session-details">
+            <span className="session-time">{liveData.sessionTime}</span>
+            <span className={`track-status ${liveData.trackStatus.toLowerCase()}`}>
+              <div className="status-indicator"></div>
+              {liveData.trackStatus}
+            </span>
+          </div>
+        </div>
+        
+        <div className="connection-status">
+          <div className={`connection-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
+          <span>{isConnected ? 'LIVE' : 'OFFLINE'}</span>
+        </div>
+      </div>
+
+      <div className="dashboard-grid">
+        {/* Main Positions */}
+        <NeonPanel className="positions-panel" color="#00D2BE">
+          <h2 className="panel-title">RACE POSITIONS</h2>
+          <div className="positions-list">
+            {liveData.positions.map((driver, index) => (
+              <div key={driver.pos} className={`position-row pos-${driver.pos}`}>
+                <div className="position-number">P{driver.pos}</div>
+                <div className="driver-code">{driver.driver}</div>
+                <div className="team-name">{driver.team}</div>
+                <div className="gap-time">{driver.gap}</div>
+                <div className="last-lap">{driver.lastLap}</div>
+                <div className={`sector-indicator ${driver.sector.toLowerCase()}`}>{driver.sector}</div>
+              </div>
+            ))}
+          </div>
+        </NeonPanel>
+
+        {/* Track Map */}
+        <NeonPanel className="trackmap-panel" color="#DC143C">
+          <h2 className="panel-title">TRACK MAP</h2>
+          <div className="track-container">
+            <div className="track-outline">
+              <div className="track-path">
+                <svg viewBox="0 0 300 200" className="track-svg">
+                  <path
+                    d="M50 150 Q50 50 150 50 Q250 50 250 100 Q250 150 150 150 Q50 150 50 150"
+                    stroke="#333"
+                    strokeWidth="8"
+                    fill="none"
+                  />
+                  <path
+                    d="M50 150 Q50 50 150 50 Q250 50 250 100 Q250 150 150 150 Q50 150 50 150"
+                    stroke="#00D2BE"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                  {/* Driver positions on track */}
+                  <circle cx="80" cy="120" r="3" fill="#FF8700" />
+                  <circle cx="120" cy="80" r="3" fill="#0600EF" />
+                  <circle cx="180" cy="60" r="3" fill="#DC143C" />
+                </svg>
+              </div>
+              <div className="track-sectors">
+                <div className="sector sector-1">S1</div>
+                <div className="sector sector-2">S2</div>
+                <div className="sector sector-3">S3</div>
+              </div>
+            </div>
+          </div>
+        </NeonPanel>
+
+        {/* Driver Radio */}
+        <NeonPanel className="radio-panel" color="#FF8700">
+          <h2 className="panel-title">DRIVER RADIO</h2>
+          <div className="radio-messages">
+            {driverRadio.map((msg, index) => (
+              <div key={index} className="radio-message">
+                <div className="radio-header">
+                  <span className="driver-code">{msg.driver}</span>
+                  <span className="radio-time">{formatTime(msg.timestamp)}</span>
+                </div>
+                <div className="radio-text">{msg.message}</div>
+              </div>
+            ))}
+            {driverRadio.length === 0 && (
+              <div className="no-radio">No recent radio messages</div>
+            )}
+          </div>
+        </NeonPanel>
+
+        {/* Race Updates */}
+        <NeonPanel className="updates-panel" color="#7C3AED">
+          <h2 className="panel-title">RACE UPDATES</h2>
+          <div className="updates-list">
+            {raceUpdates.map((update, index) => (
+              <div key={index} className="update-item">
+                <div className="update-time">{formatTime(update.timestamp)}</div>
+                <div className="update-message">{update.message}</div>
+              </div>
+            ))}
+            {raceUpdates.length === 0 && (
+              <div className="no-updates">No recent updates</div>
+            )}
+          </div>
+        </NeonPanel>
+
+        {/* Telemetry */}
+        <NeonPanel className="telemetry-panel" color="#10B981">
+          <h2 className="panel-title">CAR TELEMETRY</h2>
+          <div className="telemetry-grid">
+            {Object.entries(telemetryData).map(([driver, data]) => (
+              <div key={driver} className="telemetry-card">
+                <div className="telemetry-driver">{driver}</div>
+                <div className="telemetry-data">
+                  <div className="data-item">
+                    <span className="data-label">SPEED</span>
+                    <span className="data-value">{data.speed} km/h</span>
+                  </div>
+                  <div className="data-item">
+                    <span className="data-label">GEAR</span>
+                    <span className="data-value">{data.gear}</span>
+                  </div>
+                  <div className="data-item">
+                    <span className="data-label">RPM</span>
+                    <span className="data-value">{data.rpm}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </NeonPanel>
+
+        {/* Weather Info */}
+        <NeonPanel className="weather-panel" color="#F59E0B">
+          <h2 className="panel-title">WEATHER</h2>
+          <div className="weather-data">
+            <div className="weather-item">
+              <span className="weather-label">AIR TEMP</span>
+              <span className="weather-value">{liveData.weather.airTemp}°C</span>
+            </div>
+            <div className="weather-item">
+              <span className="weather-label">TRACK TEMP</span>
+              <span className="weather-value">{liveData.weather.trackTemp}°C</span>
+            </div>
+            <div className="weather-item">
+              <span className="weather-label">HUMIDITY</span>
+              <span className="weather-value">{liveData.weather.humidity}%</span>
+            </div>
+            <div className="weather-item">
+              <span className="weather-label">WIND</span>
+              <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
+            </div>
+          </div>
+        </NeonPanel>
+      </div>
+    </div>
+  );
+};
 const PitWallPage = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
