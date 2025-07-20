@@ -725,6 +725,7 @@ function App() {
             <Route path="/drivers" element={<DriversPage />} />
             <Route path="/driver/:driverId" element={<DriverPage />} />
             <Route path="/teams" element={<TeamsPage />} />
+            <Route path="/team/:teamName" element={<TeamPage />} />
             <Route path="/pitwall" element={<PitWallPage />} />
           </Routes>
         </main>
