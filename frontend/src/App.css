@@ -1290,7 +1290,501 @@ body {
   }
 }
 
-/* Custom Scrollbar */
+/* Live Dashboard Page */
+.live-dashboard-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.session-info .session-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.session-details {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.session-time {
+  font-size: 1.2rem;
+  color: var(--neon-blue);
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.track-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.track-status.green {
+  color: #10b981;
+}
+
+.track-status.yellow {
+  color: #f59e0b;
+}
+
+.track-status.red {
+  color: #ef4444;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.connection-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.connection-dot.connected {
+  background: #10b981;
+}
+
+.connection-dot.disconnected {
+  background: #ef4444;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.positions-panel {
+  grid-row: 1 / 4;
+}
+
+.trackmap-panel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.radio-panel {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+.updates-panel {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.telemetry-panel {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.weather-panel {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* Position Panel */
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.position-row {
+  display: grid;
+  grid-template-columns: 60px 80px 1fr 100px 120px 60px;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--neon-blue);
+  transition: all 0.3s ease;
+}
+
+.position-row.pos-1 {
+  border-left-color: #fbbf24;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, var(--bg-primary) 100%);
+}
+
+.position-row.pos-2 {
+  border-left-color: #9ca3af;
+  background: linear-gradient(135deg, rgba(156, 163, 175, 0.1) 0%, var(--bg-primary) 100%);
+}
+
+.position-row.pos-3 {
+  border-left-color: #ea580c;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, var(--bg-primary) 100%);
+}
+
+.position-row:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 210, 190, 0.2);
+}
+
+.position-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+  text-align: center;
+}
+
+.driver-code {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-name {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.gap-time {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--neon-blue);
+  text-align: right;
+}
+
+.last-lap {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.sector-indicator {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.sector-indicator.s1 {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.sector-indicator.s2 {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.sector-indicator.s3 {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* Track Map */
+.track-container {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-outline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.track-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.track-sectors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.sector {
+  background: rgba(0, 210, 190, 0.2);
+  color: var(--neon-blue);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Radio Panel */
+.radio-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.radio-message {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 3px solid var(--neon-orange);
+}
+
+.radio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.radio-header .driver-code {
+  font-weight: 700;
+  color: var(--neon-orange);
+}
+
+.radio-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.radio-text {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.no-radio {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Updates Panel */
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.update-item {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border-left: 3px solid #7c3aed;
+}
+
+.update-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.update-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.no-updates {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Telemetry Panel */
+.telemetry-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.telemetry-card {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 3px solid #10b981;
+}
+
+.telemetry-driver {
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.telemetry-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.data-item {
+  text-align: center;
+}
+
+.data-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.data-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+}
+
+/* Weather Panel */
+.weather-data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.weather-item {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  border-left: 3px solid #f59e0b;
+}
+
+.weather-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.weather-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive Live Dashboard */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+  
+  .positions-panel {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  
+  .trackmap-panel {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .radio-panel {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+  
+  .updates-panel {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .telemetry-panel {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  
+  .weather-panel {
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .positions-panel,
+  .trackmap-panel,
+  .radio-panel,
+  .updates-panel,
+  .telemetry-panel,
+  .weather-panel {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  
+  .position-row {
+    grid-template-columns: 40px 60px 1fr 80px;
+    font-size: 0.9rem;
+  }
+  
+  .last-lap,
+  .sector-indicator {
+    display: none;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .session-details {
+    justify-content: center;
+  }
+}
 ::-webkit-scrollbar {
   width: 8px;
 }
