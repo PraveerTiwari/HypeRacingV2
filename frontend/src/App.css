@@ -221,7 +221,7 @@ body {
   justify-items: center;
 }
 
-.dashboard-link, .news-section {
+.dashboard-link, .news-section, .drivers-preview {
   width: 100%;
   max-width: 600px;
 }
@@ -235,6 +235,11 @@ body {
 
 .news-section {
   grid-row: auto;
+}
+
+.drivers-preview {
+  grid-column: 1;
+  margin-top: 0;
 }
 
 .section-title {
