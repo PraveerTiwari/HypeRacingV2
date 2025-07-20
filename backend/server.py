@@ -93,7 +93,7 @@ class F1DataService:
         
     async def get_current_standings(self):
         """Get current driver standings"""
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
             try:
                 response = await client.get(f"{self.base_url}/current/driverStandings.json")
                 data = response.json()
