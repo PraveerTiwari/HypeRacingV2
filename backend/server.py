@@ -148,7 +148,7 @@ class F1DataService:
 
     async def get_driver_details(self, driver_id: str):
         """Get detailed driver information"""
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
             try:
                 # Get driver info
                 response = await client.get(f"{self.base_url}/current/drivers/{driver_id}.json")
