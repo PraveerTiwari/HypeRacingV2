@@ -122,23 +122,6 @@ const HomePage = () => {
             ))}
           </div>
         </NeonPanel>
-
-        {/* Top Drivers Preview */}
-        <NeonPanel className="drivers-preview" color="#FF8700">
-          <h2 className="section-title">CHAMPIONSHIP LEADERS</h2>
-          <div className="drivers-grid">
-            {drivers.map((driver, index) => (
-              <Link key={driver.driver_id} to={`/driver/${driver.driver_id}`} className="driver-preview-card">
-                <div className="driver-position">P{driver.position}</div>
-                <div className="driver-info">
-                  <div className="driver-name">{driver.name}</div>
-                  <div className="driver-team">{driver.team}</div>
-                  <div className="driver-points">{driver.points} PTS</div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </NeonPanel>
       </div>
     </div>
   );
