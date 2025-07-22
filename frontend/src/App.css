@@ -1376,50 +1376,6 @@ body {
   text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .home-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-  
-  .dashboard-link, .news-section, .drivers-preview {
-    max-width: 100%;
-  }
-  
-  .driver-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .drivers-grid, .teams-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-  
-  .nav-container {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .main-content {
-    padding-top: 120px;
-  }
-}
 
 /* Live Dashboard Page */
 .live-dashboard-page {
