@@ -1451,7 +1451,7 @@ body {
 
 .positions-panel-new {
   grid-column: 1;
-  grid-row: 1 / 4;
+  grid-row: 1;
   height: 800px;
   overflow: hidden;
 }
