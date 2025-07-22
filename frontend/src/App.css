@@ -853,7 +853,63 @@ body {
   cursor: not-allowed;
 }
 
-/* Individual Team Page */
+/* Race Analytics Panel */
+.race-analytics-panel {
+  margin-bottom: 2rem;
+}
+
+.race-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.race-stat-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  border-left: 3px solid #7c3aed;
+}
+
+.race-stat-card .stat-title {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.race-stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #7c3aed;
+  font-family: 'Courier New', monospace;
+}
+
+.track-insight {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #7c3aed;
+}
+
+.insight-title {
+  font-size: 1rem;
+  color: #7c3aed;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.insight-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
 .team-page {
   position: relative;
   z-index: 1;
