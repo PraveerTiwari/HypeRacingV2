@@ -1516,10 +1516,8 @@ body {
 }
 
 .telemetry-panel-new {
-  grid-column: 2;
-  grid-row: 2;
-  height: 250px;
-  width: 48%;
+  flex: 1;
+  height: 100%;
 }
 
 .radio-panel-new {
