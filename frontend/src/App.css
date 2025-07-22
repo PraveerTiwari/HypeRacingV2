@@ -1669,7 +1669,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 300px;
+  max-height: 220px;
   overflow-y: auto;
 }
 
