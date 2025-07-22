@@ -421,7 +421,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
-  border-left: 3px solid var(--text-primary);
+  border-left: 3px solid var(--neon-orange);
 }
 
 .driver-preview-card:hover {
