@@ -1189,13 +1189,13 @@ body {
 .driver-position-badge {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--neon-orange);
+  color: var(--text-primary);
   min-width: 80px;
   text-align: center;
   padding: 1rem;
-  background: rgba(255, 135, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  border: 2px solid rgba(255, 135, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .driver-details {
