@@ -816,12 +816,12 @@ const LiveDashboardPage = () => {
       { pos: 12, driver: 'DOO', driverId: 'jack_doohan', team: 'Alpine F1 Team', gap: '+10.567', lastLap: '1:29.123', sector: 'S3' },
       { pos: 13, driver: 'HAD', driverId: 'isack_hadjar', team: 'RB F1 Team', gap: '+11.890', lastLap: '1:29.789', sector: 'S2' },
       { pos: 14, driver: 'LAW', driverId: 'liam_lawson', team: 'RB F1 Team', gap: '+12.456', lastLap: '1:30.234', sector: 'S1' },
-      { pos: 15, driver: 'HUL', driverId: 'nico_hulkenberg', team: 'Haas F1 Team', gap: '+13.789', lastLap: '1:30.890', sector: 'S3' },
-      { pos: 16, driver: 'BEA', driverId: 'oliver_bearman', team: 'Haas F1 Team', gap: '+14.123', lastLap: '1:31.456', sector: 'S2' },
+      { pos: 15, driver: 'BEA', driverId: 'oliver_bearman', team: 'Haas F1 Team', gap: '+13.789', lastLap: '1:30.890', sector: 'S3' },
+      { pos: 16, driver: 'COL', driverId: 'franco_colapinto', team: 'Haas F1 Team', gap: '+14.123', lastLap: '1:31.456', sector: 'S2' },
       { pos: 17, driver: 'ALB', driverId: 'alexander_albon', team: 'Williams', gap: '+15.567', lastLap: '1:32.123', sector: 'S1' },
       { pos: 18, driver: 'SAI', driverId: 'carlos_sainz', team: 'Williams', gap: '+16.890', lastLap: '1:32.789', sector: 'S3' },
-      { pos: 19, driver: 'BOT', driverId: 'valtteri_bottas', team: 'Kick Sauber', gap: '+17.456', lastLap: '1:33.234', sector: 'S2' },
-      { pos: 20, driver: 'ZHO', driverId: 'guanyu_zhou', team: 'Kick Sauber', gap: '+18.123', lastLap: '1:33.890', sector: 'S1' }
+      { pos: 19, driver: 'HUL', driverId: 'nico_hulkenberg', team: 'Kick Sauber', gap: '+17.456', lastLap: '1:33.234', sector: 'S2' },
+      { pos: 20, driver: 'BOR', driverId: 'gabriel_bortoleto', team: 'Kick Sauber', gap: '+18.123', lastLap: '1:33.890', sector: 'S1' }
     ];
 
     // Add some randomness to gaps and lap times
