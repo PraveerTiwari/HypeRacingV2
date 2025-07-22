@@ -1985,8 +1985,9 @@ body {
   
   .nav-container {
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
+    justify-content: space-between;
   }
   
   .nav-links {
