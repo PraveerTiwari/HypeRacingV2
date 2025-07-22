@@ -835,7 +835,7 @@ const LiveDashboardPage = () => {
 
   const generateTelemetryData = () => {
     const allDrivers = ['VER', 'HAM', 'NOR', 'PIA', 'LEC', 'RUS', 'ANT', 'PER', 'ALO', 'STR', 
-                       'GAS', 'DOO', 'HAD', 'LAW', 'HUL', 'BEA', 'ALB', 'SAI', 'BOT', 'ZHO'];
+                       'GAS', 'DOO', 'HAD', 'LAW', 'BEA', 'COL', 'ALB', 'SAI', 'HUL', 'BOR'];
     
     const telemetryData = {};
     allDrivers.forEach(driver => {
