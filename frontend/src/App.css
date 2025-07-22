@@ -1942,6 +1942,11 @@ body {
     height: 300px;
   }
   
+  .drivers-grid, .teams-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
