@@ -1506,6 +1506,15 @@ body {
   padding: 1rem;
 }
 
+.telemetry-radio-container {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 420px;
+  height: 380px;
+  display: flex;
+  gap: 1.5rem;
+}
+
 .telemetry-panel-new {
   grid-column: 2;
   grid-row: 2;
