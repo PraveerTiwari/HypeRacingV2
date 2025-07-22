@@ -311,6 +311,45 @@ const DriverPage = () => {
 
         {/* Middle Column - Analytics */}
         <div className="analytics-column">
+          {/* Race Analytics Panel */}
+          <NeonPanel color="#7C3AED" className="race-analytics-panel">
+            <h2 className="section-title">RACE ANALYTICS - BELGIAN GP</h2>
+            <div className="race-stats-grid">
+              <div className="race-stat-card">
+                <div className="stat-title">AVG LAPTIME</div>
+                <div className="stat-value">1:44.{Math.floor(Math.random() * 999).toString().padStart(3, '0')}</div>
+              </div>
+              <div className="race-stat-card">
+                <div className="stat-title">AVG POSITION</div>
+                <div className="stat-value">P{Math.floor(driver.position / 2) + Math.floor(Math.random() * 3)}</div>
+              </div>
+              <div className="race-stat-card">
+                <div className="stat-title">FASTEST LAP</div>
+                <div className="stat-value">1:41.{Math.floor(Math.random() * 999).toString().padStart(3, '0')}</div>
+              </div>
+              <div className="race-stat-card">
+                <div className="stat-title">BEST FINISH</div>
+                <div className="stat-value">P{Math.max(1, driver.position - Math.floor(Math.random() * 5))}</div>
+              </div>
+              <div className="race-stat-card">
+                <div className="stat-title">BEST QUALIFYING</div>
+                <div className="stat-value">P{Math.max(1, driver.position - Math.floor(Math.random() * 7))}</div>
+              </div>
+              <div className="race-stat-card">
+                <div className="stat-title">SPA PODIUMS</div>
+                <div className="stat-value">{driver.position <= 5 ? Math.floor(Math.random() * 3) + 1 : Math.floor(Math.random() * 2)}</div>
+              </div>
+            </div>
+            <div className="track-insight">
+              <h3 className="insight-title">SPA-FRANCORCHAMPS INSIGHT</h3>
+              <p className="insight-text">
+                This track favors {driver.position <= 10 ? 'strong qualifying performance and tire management' : 'consistent pace and strategic overtaking'}. 
+                Historical data shows {driver.name.split(' ')[0]} performs {driver.position <= 8 ? 'exceptionally well' : 'competitively'} at this circuit.
+              </p>
+            </div>
+          </NeonPanel>
+
+          {/* Performance Analytics Panel */}
           <NeonPanel color="#FFFFFF" className="analytics-panel">
             <h2 className="section-title">PERFORMANCE ANALYTICS</h2>
             <div className="analytics-grid">
