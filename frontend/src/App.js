@@ -950,17 +950,15 @@ const LiveDashboardPage = () => {
               <div 
                 key={driver.pos} 
                 className="position-row-new"
-                style={{ '--team-color': driver.teamColor }}
+                style={{ '--team-color': driver.teamColor, cursor: 'pointer' }}
+                onClick={() => navigate(`/driver/${driver.driverId}`)}
               >
                 <div className="position-number">P{driver.pos}</div>
                 <div 
                   className="team-indicator"
                   style={{ backgroundColor: driver.teamColor }}
                 ></div>
-                <div 
-                  className="driver-code clickable-driver-name"
-                  onClick={() => navigate(`/driver/${driver.driverId}`)}
-                >
+                <div className="driver-code">
                   {driver.driver}
                 </div>
                 <div className="team-name-short">{driver.team.replace(' F1 Team', '').replace(' Racing', '')}</div>
