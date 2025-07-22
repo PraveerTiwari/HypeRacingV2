@@ -287,6 +287,7 @@ body {
   background: linear-gradient(135deg, #111111 0%, #1f1f1f 100%);
   border: 1px solid #333333;
   position: relative;
+  padding: 2rem;
 }
 
 .dashboard-panel::before {
@@ -304,6 +305,63 @@ body {
 
 .dashboard-panel:hover {
   transform: translateY(-5px);
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dashboard-main {
+  text-align: left;
+}
+
+.race-countdown {
+  text-align: center;
+  border-left: 2px solid var(--neon-red);
+  padding-left: 2rem;
+}
+
+.countdown-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.race-info {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--neon-red);
+  line-height: 1;
+  font-family: 'Courier New', monospace;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
 }
 
 .panel-title {
