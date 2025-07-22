@@ -2033,6 +2033,7 @@ body {
   }
 }
 
+/* iPhone Portrait Optimization */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2rem;
@@ -2076,6 +2077,47 @@ body {
     grid-template-columns: 1fr;
   }
   
+  .driver-layout, .team-layout {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .race-analytics-panel,
+  .analytics-panel,
+  .mini-pitwall {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  .driver-info-column .neon-panel,
+  .team-info-column .neon-panel {
+    padding: 1rem;
+  }
+  
+  .chat-container {
+    height: 250px;
+  }
+  
+  .race-stat-card {
+    padding: 0.75rem;
+  }
+  
+  .race-stat-card .stat-value {
+    font-size: 1.2rem;
+  }
+  
+  .track-insight {
+    padding: 1rem;
+  }
+  
+  .insight-title {
+    font-size: 0.9rem;
+  }
+  
+  .insight-text {
+    font-size: 0.8rem;
+  }
+  
   .drivers-grid .driver-preview-card {
     flex-direction: row;
     padding: 1rem;
@@ -2112,10 +2154,73 @@ body {
   .nav-link {
     width: 100%;
     text-align: center;
+    padding: 0.75rem;
   }
   
   .main-content {
-    padding-top: 200px;
+    padding-top: 220px;
+  }
+  
+  .live-dashboard-page,
+  .driver-page,
+  .team-page,
+  .drivers-page,
+  .teams-page,
+  .pitwall-page {
+    padding: 0.5rem;
+  }
+}
+
+/* Large iPhone and iPhone Pro Max */
+@media (max-width: 428px) and (min-width: 390px) {
+  .race-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .countdown-number {
+    font-size: 1.4rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Very Small Screens - iPhone SE */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .countdown-number {
+    font-size: 1rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.5rem;
+  }
+  
+  .race-stat-card .stat-value {
+    font-size: 1rem;
+  }
+  
+  .driver-position {
+    font-size: 1rem;
+    min-width: 30px;
+  }
+  
+  .position-row {
+    grid-template-columns: 30px 45px 1fr 60px;
+    padding: 0.5rem;
+  }
+  
+  .main-content {
+    padding-top: 240px;
   }
 }
 ::-webkit-scrollbar {
