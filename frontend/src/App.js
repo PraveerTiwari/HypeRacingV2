@@ -891,15 +891,23 @@ const LiveDashboardPage = () => {
       </div>
 
       <div className="dashboard-grid">
-        {/* Main Positions */}
+        {/* Main Positions - Left Side */}
         <NeonPanel className="positions-panel" color="#00D2BE">
           <h2 className="panel-title">RACE POSITIONS</h2>
           <div className="positions-list">
             {liveData.positions.map((driver, index) => (
-              <div key={driver.pos} className={`position-row pos-${driver.pos}`}>
+              <div 
+                key={driver.pos} 
+                className={`position-row pos-${driver.pos}`}
+                style={{ '--team-color': driver.teamColor }}
+              >
                 <div className="position-number">P{driver.pos}</div>
+                <div 
+                  className="team-indicator"
+                  style={{ backgroundColor: driver.teamColor }}
+                ></div>
                 <div className="driver-code">{driver.driver}</div>
-                <div className="team-name">{driver.team}</div>
+                <div className="team-name-short">{driver.team}</div>
                 <div className="gap-time">{driver.gap}</div>
                 <div className="last-lap">{driver.lastLap}</div>
                 <div className={`sector-indicator ${driver.sector.toLowerCase()}`}>{driver.sector}</div>
@@ -908,78 +916,46 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Track Map */}
+        {/* Track Map - Right Side Top */}
         <NeonPanel className="trackmap-panel" color="#DC143C">
-          <h2 className="panel-title">TRACK MAP</h2>
+          <h2 className="panel-title">TRACK MAP - SPA-FRANCORCHAMPS</h2>
           <div className="track-container">
             <div className="track-outline">
               <div className="track-path">
-                <svg viewBox="0 0 300 200" className="track-svg">
+                <svg viewBox="0 0 400 250" className="track-svg">
+                  {/* Spa-Francorchamps track outline */}
                   <path
-                    d="M50 150 Q50 50 150 50 Q250 50 250 100 Q250 150 150 150 Q50 150 50 150"
+                    d="M50 200 L100 180 Q150 160 200 140 Q250 120 300 110 Q350 100 380 120 Q390 140 370 160 L350 180 Q320 200 280 210 L200 220 Q150 225 100 220 L50 200"
                     stroke="#333"
-                    strokeWidth="8"
+                    strokeWidth="12"
                     fill="none"
                   />
                   <path
-                    d="M50 150 Q50 50 150 50 Q250 50 250 100 Q250 150 150 150 Q50 150 50 150"
-                    stroke="#00D2BE"
-                    strokeWidth="2"
+                    d="M50 200 L100 180 Q150 160 200 140 Q250 120 300 110 Q350 100 380 120 Q390 140 370 160 L350 180 Q320 200 280 210 L200 220 Q150 225 100 220 L50 200"
+                    stroke="#DC143C"
+                    strokeWidth="3"
                     fill="none"
                   />
                   {/* Driver positions on track */}
-                  <circle cx="80" cy="120" r="3" fill="#FF8700" />
-                  <circle cx="120" cy="80" r="3" fill="#0600EF" />
-                  <circle cx="180" cy="60" r="3" fill="#DC143C" />
+                  <circle cx="120" cy="175" r="4" fill="#0600EF" />
+                  <circle cx="180" cy="150" r="4" fill="#FF8700" />
+                  <circle cx="250" cy="125" r="4" fill="#FF8700" />
+                  <circle cx="320" cy="115" r="4" fill="#00D2BE" />
+                  <circle cx="360" cy="135" r="4" fill="#DC143C" />
                 </svg>
               </div>
               <div className="track-sectors">
-                <div className="sector sector-1">S1</div>
-                <div className="sector sector-2">S2</div>
-                <div className="sector sector-3">S3</div>
+                <div className="sector sector-1">SECTOR 1</div>
+                <div className="sector sector-2">SECTOR 2</div>
+                <div className="sector sector-3">SECTOR 3</div>
               </div>
             </div>
           </div>
         </NeonPanel>
 
-        {/* Driver Radio */}
-        <NeonPanel className="radio-panel" color="#FF8700">
-          <h2 className="panel-title">DRIVER RADIO</h2>
-          <div className="radio-messages">
-            {driverRadio.map((msg, index) => (
-              <div key={index} className="radio-message">
-                <div className="radio-header">
-                  <span className="driver-code">{msg.driver}</span>
-                  <span className="radio-time">{formatTime(msg.timestamp)}</span>
-                </div>
-                <div className="radio-text">{msg.message}</div>
-              </div>
-            ))}
-            {driverRadio.length === 0 && (
-              <div className="no-radio">No recent radio messages</div>
-            )}
-          </div>
-        </NeonPanel>
-
-        {/* Race Updates */}
-        <NeonPanel className="updates-panel" color="#7C3AED">
-          <h2 className="panel-title">RACE UPDATES</h2>
-          <div className="updates-list">
-            {raceUpdates.map((update, index) => (
-              <div key={index} className="update-item">
-                <div className="update-time">{formatTime(update.timestamp)}</div>
-                <div className="update-message">{update.message}</div>
-              </div>
-            ))}
-            {raceUpdates.length === 0 && (
-              <div className="no-updates">No recent updates</div>
-            )}
-          </div>
-        </NeonPanel>
-
-        {/* Telemetry */}
+        {/* Telemetry - Right Side Middle */}
         <NeonPanel className="telemetry-panel" color="#10B981">
-          <h2 className="panel-title">CAR TELEMETRY</h2>
+          <h2 className="panel-title">LIVE TELEMETRY</h2>
           <div className="telemetry-grid">
             {Object.entries(telemetryData).map(([driver, data]) => (
               <div key={driver} className="telemetry-card">
@@ -987,7 +963,7 @@ const LiveDashboardPage = () => {
                 <div className="telemetry-data">
                   <div className="data-item">
                     <span className="data-label">SPEED</span>
-                    <span className="data-value">{data.speed} km/h</span>
+                    <span className="data-value">{data.speed}</span>
                   </div>
                   <div className="data-item">
                     <span className="data-label">GEAR</span>
@@ -1003,16 +979,31 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Weather Info */}
+        {/* Updates and Weather - Right Side Bottom */}
+        <NeonPanel className="updates-panel" color="#7C3AED">
+          <h2 className="panel-title">RACE UPDATES</h2>
+          <div className="updates-list">
+            {raceUpdates.map((update, index) => (
+              <div key={index} className="update-item">
+                <div className="update-time">{formatTime(update.timestamp)}</div>
+                <div className="update-message">{update.message}</div>
+              </div>
+            ))}
+            {raceUpdates.length === 0 && (
+              <div className="no-updates">No recent updates</div>
+            )}
+          </div>
+        </NeonPanel>
+
         <NeonPanel className="weather-panel" color="#F59E0B">
           <h2 className="panel-title">WEATHER</h2>
           <div className="weather-data">
             <div className="weather-item">
-              <span className="weather-label">AIR TEMP</span>
+              <span className="weather-label">AIR</span>
               <span className="weather-value">{liveData.weather.airTemp}°C</span>
             </div>
             <div className="weather-item">
-              <span className="weather-label">TRACK TEMP</span>
+              <span className="weather-label">TRACK</span>
               <span className="weather-value">{liveData.weather.trackTemp}°C</span>
             </div>
             <div className="weather-item">
@@ -1023,6 +1014,25 @@ const LiveDashboardPage = () => {
               <span className="weather-label">WIND</span>
               <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
             </div>
+          </div>
+        </NeonPanel>
+
+        {/* Driver Radio - Bottom Full Width */}
+        <NeonPanel className="radio-panel" color="#FF8700">
+          <h2 className="panel-title">DRIVER RADIO</h2>
+          <div className="radio-messages">
+            {driverRadio.map((msg, index) => (
+              <div key={index} className="radio-message">
+                <div className="radio-header">
+                  <span className="driver-code">{msg.driver}</span>
+                  <span className="radio-time">{formatTime(msg.timestamp)}</span>
+                </div>
+                <div className="radio-text">{msg.message}</div>
+              </div>
+            ))}
+            {driverRadio.length === 0 && (
+              <div className="no-radio">No recent radio messages</div>
+            )}
           </div>
         </NeonPanel>
       </div>
