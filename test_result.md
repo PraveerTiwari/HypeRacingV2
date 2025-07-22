@@ -231,8 +231,41 @@ test_plan:
 agent_communication:
   - agent: "testing"
     message: "Comprehensive backend testing completed. Fixed critical F1 API integration issue by updating from deprecated Ergast API to Jolpica API. All 8 backend tests now passing. OpenAI quota limits noted but system handles gracefully with fallback responses."
-  - agent: "main"
-    message: "✅ COMPLETED - All dashboard updates successfully implemented and verified. (1) 2025 F1 driver lineup active with HAM at Ferrari, ANT at Mercedes. (2) Telemetry panel scrolls properly showing all 20 drivers. (3) No overflow issues detected - clean professional layout maintained."
+  - task: "Update Kick Sauber Drivers to HUL/BOR"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Updated Kick Sauber drivers from BOT/ZHO to HUL (Nico Hulkenberg) and BOR (Gabriel Bortoleto) in live dashboard positions and telemetry data. Also updated radio messages to include new drivers."
+
+  - task: "Make Dashboard Position Rows Fully Clickable"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Made entire position row clickable with cursor pointer style and onClick navigation. Added hover effects in CSS for better UX."
+
+  - task: "Make Team Page Driver Rows Fully Clickable"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Made entire driver info row clickable on team pages with cursor pointer and hover effects. Removed click handler from just driver name and applied to full row."
   - agent: "testing"
     message: "✅ RE-VERIFICATION COMPLETE - All 8 backend tests still passing (8/8). API Health Check, F1 data integration (21 drivers retrieved), AI Pit Wall chat with session management, chat history storage, and error handling all working correctly. Backend is stable and ready for production."
   - task: "Update Dashboard with 2025 F1 Driver Lineup"
