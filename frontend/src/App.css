@@ -1499,10 +1499,11 @@ body {
 }
 
 .track-container-new {
-  height: 180px;
+  height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .telemetry-panel-new {
