@@ -99,14 +99,36 @@ const HomePage = () => {
       </section>
 
       <div className="home-grid">
-        {/* Live Dashboard Link - Now at top */}
+        {/* Live Dashboard Link with Countdown - Now at top */}
         <Link to="/live" className="dashboard-link">
           <NeonPanel color="#DC143C" className="dashboard-panel">
-            <h2 className="panel-title">LIVE DASHBOARD</h2>
-            <p className="panel-description">Real-time race positions and timing</p>
-            <div className="live-indicator">
-              <div className="live-dot"></div>
-              <span>LIVE DATA</span>
+            <div className="dashboard-content">
+              <div className="dashboard-main">
+                <h2 className="panel-title">LIVE DASHBOARD</h2>
+                <p className="panel-description">Real-time race positions and timing</p>
+                <div className="live-indicator">
+                  <div className="live-dot"></div>
+                  <span>LIVE DATA</span>
+                </div>
+              </div>
+              <div className="race-countdown">
+                <div className="countdown-title">NEXT RACE</div>
+                <div className="race-info">BELGIAN GP</div>
+                <div className="countdown-timer">
+                  <div className="countdown-item">
+                    <div className="countdown-number">2</div>
+                    <div className="countdown-label">DAYS</div>
+                  </div>
+                  <div className="countdown-item">
+                    <div className="countdown-number">14</div>
+                    <div className="countdown-label">HRS</div>
+                  </div>
+                  <div className="countdown-item">
+                    <div className="countdown-number">23</div>
+                    <div className="countdown-label">MIN</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </NeonPanel>
         </Link>
