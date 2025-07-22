@@ -227,4 +227,39 @@ test_plan:
 
 agent_communication:
   - agent: "testing"
+  - task: "Update Dashboard with 2025 F1 Driver Lineup"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "2025 drivers already implemented in generateLivePositions function (lines 805-825) with correct team assignments like HAM at Ferrari, ANT at Mercedes, etc. Radio messages and telemetry also include 2025 drivers."
+
+  - task: "Make Telemetry Panel Scrollable"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/App.css"
+    stuck_count: 0
+    priority: "high"  
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "CSS already has .telemetry-grid-new with overflow-y: auto and height: 310px (lines 1542-1548). Telemetry data generated for all 20 drivers. Need to verify it's working properly."
+
+  - task: "Fix Dashboard Overflow Issues"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/App.css"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true  
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Need to review and fix any remaining overflow issues across dashboard panels to ensure clean layout."
     message: "Comprehensive backend testing completed. Fixed critical F1 API integration issue by updating from deprecated Ergast API to Jolpica API. All 8 backend tests now passing. OpenAI quota limits noted but system handles gracefully with fallback responses."
