@@ -312,7 +312,7 @@ const DriverPage = () => {
         {/* Middle Column - Analytics */}
         <div className="analytics-column">
           {/* Race Analytics Panel */}
-          <NeonPanel color="#7C3AED" className="race-analytics-panel">
+          <NeonPanel color={teamColor} className="race-analytics-panel">
             <h2 className="section-title">RACE ANALYTICS - BELGIAN GP</h2>
             <div className="race-stats-grid">
               <div className="race-stat-card">
