@@ -433,11 +433,11 @@ body {
 .driver-position {
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--neon-orange);
+  color: var(--text-primary);
   min-width: 40px;
   text-align: center;
   padding: 0.5rem;
-  background: rgba(255, 135, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
 }
 
@@ -458,7 +458,7 @@ body {
 }
 
 .driver-points {
-  color: var(--neon-blue);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
