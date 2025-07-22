@@ -230,6 +230,9 @@ test_plan:
 
 agent_communication:
   - agent: "testing"
+    message: "Comprehensive backend testing completed. Fixed critical F1 API integration issue by updating from deprecated Ergast API to Jolpica API. All 8 backend tests now passing. OpenAI quota limits noted but system handles gracefully with fallback responses."
+  - agent: "main"
+    message: "Starting dashboard updates for 2025 F1 season. Found that 2025 driver lineup is already implemented in live position generation and telemetry. Telemetry panel CSS has scrollable properties. Need to verify functionality and fix any remaining overflow issues."
   - task: "Update Dashboard with 2025 F1 Driver Lineup"
     implemented: true
     working: true
