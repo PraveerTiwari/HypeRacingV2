@@ -266,8 +266,8 @@ agent_communication:
       - working: true
         agent: "main"
         comment: "✅ COMPLETED - Made entire driver info row clickable on team pages with cursor pointer and hover effects. Removed click handler from just driver name and applied to full row."
-  - agent: "testing"
-    message: "✅ RE-VERIFICATION COMPLETE - All 8 backend tests still passing (8/8). API Health Check, F1 data integration (21 drivers retrieved), AI Pit Wall chat with session management, chat history storage, and error handling all working correctly. Backend is stable and ready for production."
+  - agent: "main"
+    message: "✅ ADDITIONAL UPDATES COMPLETED - (1) Fixed Kick Sauber drivers: HUL (Nico Hulkenberg) and BOR (Gabriel Bortoleto). (2) Made entire dashboard position rows clickable, not just driver names. (3) Made entire team page driver rows clickable. (4) Added proper hover effects and cursor styling for better UX."
   - task: "Update Dashboard with 2025 F1 Driver Lineup"
     implemented: true
     working: true
