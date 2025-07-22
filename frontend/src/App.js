@@ -579,11 +579,13 @@ const TeamPage = () => {
             <h1 className="team-name">{decodedTeamName}</h1>
             <div className="team-drivers-info">
               {teamDrivers.map(driver => (
-                <div key={driver.driver_id} className="driver-info-row">
-                  <span 
-                    className="driver-name clickable-driver" 
-                    onClick={() => navigate(`/driver/${driver.driver_id}`)}
-                  >
+                <div 
+                  key={driver.driver_id} 
+                  className="driver-info-row"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate(`/driver/${driver.driver_id}`)}
+                >
+                  <span className="driver-name">
                     {driver.name}
                   </span>
                   <span className="driver-position">P{driver.position}</span>
