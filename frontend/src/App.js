@@ -601,7 +601,7 @@ const TeamPage = () => {
         {/* Middle Column - Team Analytics */}
         <div className="analytics-column">
           {/* Team Race Analytics Panel */}
-          <NeonPanel color="#7C3AED" className="race-analytics-panel">
+          <NeonPanel color={teamColor} className="race-analytics-panel">
             <h2 className="section-title">TEAM RACE ANALYTICS - BELGIAN GP</h2>
             <div className="race-stats-grid">
               <div className="race-stat-card">
