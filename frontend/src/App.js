@@ -800,21 +800,24 @@ const LiveDashboardPage = () => {
 
   const generateLivePositions = () => {
     const drivers = [
-      { pos: 1, driver: 'VER', team: 'Red Bull', gap: '+0.000', lastLap: '1:23.456', sector: 'S2' },
+      { pos: 1, driver: 'VER', team: 'Red Bull Racing', gap: '+0.000', lastLap: '1:23.456', sector: 'S2' },
       { pos: 2, driver: 'PIA', team: 'McLaren', gap: '+0.234', lastLap: '1:23.690', sector: 'S1' },
       { pos: 3, driver: 'NOR', team: 'McLaren', gap: '+1.567', lastLap: '1:25.023', sector: 'S3' },
       { pos: 4, driver: 'RUS', team: 'Mercedes', gap: '+2.890', lastLap: '1:24.346', sector: 'S2' },
       { pos: 5, driver: 'LEC', team: 'Ferrari', gap: '+3.456', lastLap: '1:24.912', sector: 'S1' },
       { pos: 6, driver: 'HAM', team: 'Mercedes', gap: '+4.123', lastLap: '1:25.579', sector: 'S3' },
       { pos: 7, driver: 'SAI', team: 'Ferrari', gap: '+5.789', lastLap: '1:26.234', sector: 'S2' },
-      { pos: 8, driver: 'PER', team: 'Red Bull', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' }
+      { pos: 8, driver: 'PER', team: 'Red Bull Racing', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' },
+      { pos: 9, driver: 'ALO', team: 'Aston Martin', gap: '+7.456', lastLap: '1:27.123', sector: 'S3' },
+      { pos: 10, driver: 'STR', team: 'Aston Martin', gap: '+8.789', lastLap: '1:27.890', sector: 'S2' }
     ];
 
     // Add some randomness to gaps and lap times
     return drivers.map(driver => ({
       ...driver,
       gap: driver.pos === 1 ? '+0.000' : `+${(Math.random() * 10 + driver.pos * 0.5).toFixed(3)}`,
-      lastLap: `1:2${Math.floor(Math.random() * 7) + 3}.${Math.floor(Math.random() * 999).toString().padStart(3, '0')}`
+      lastLap: `1:2${Math.floor(Math.random() * 7) + 3}.${Math.floor(Math.random() * 999).toString().padStart(3, '0')}`,
+      teamColor: TEAM_COLORS[driver.team] || '#00D2BE'
     }));
   };
 
