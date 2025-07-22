@@ -957,78 +957,81 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Right Top - Track Map */}
+        {/* Right Top - Track Map (Expanded) */}
         <NeonPanel className="trackmap-panel-new" color="#DC143C">
           <h2 className="panel-title">TRACK MAP - SPA-FRANCORCHAMPS</h2>
           <div className="track-container-new">
             <div className="track-outline">
-              <svg viewBox="0 0 400 200" className="track-svg">
+              <svg viewBox="0 0 500 300" className="track-svg">
                 <path
-                  d="M60 160 L100 145 Q140 130 180 120 Q220 110 260 105 Q300 100 330 110 Q350 120 340 135 L325 150 Q300 165 270 170 L210 175 Q170 178 130 175 L60 160"
+                  d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
                   stroke="#333"
-                  strokeWidth="12"
+                  strokeWidth="16"
                   fill="none"
                 />
                 <path
-                  d="M60 160 L100 145 Q140 130 180 120 Q220 110 260 105 Q300 100 330 110 Q350 120 340 135 L325 150 Q300 165 270 170 L210 175 Q170 178 130 175 L60 160"
+                  d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
                   stroke="#DC143C"
-                  strokeWidth="3"
+                  strokeWidth="4"
                   fill="none"
                 />
-                <circle cx="110" cy="150" r="3" fill="#0600EF" />
-                <circle cx="160" cy="125" r="3" fill="#FF8700" />
-                <circle cx="210" cy="115" r="3" fill="#FF8700" />
-                <circle cx="280" cy="108" r="3" fill="#00D2BE" />
-                <circle cx="320" cy="125" r="3" fill="#DC143C" />
+                <circle cx="140" cy="215" r="4" fill="#0600EF" />
+                <circle cx="220" cy="190" r="4" fill="#FF8700" />
+                <circle cx="300" cy="165" r="4" fill="#FF8700" />
+                <circle cx="380" cy="145" r="4" fill="#00D2BE" />
+                <circle cx="450" cy="155" r="4" fill="#DC143C" />
               </svg>
             </div>
           </div>
         </NeonPanel>
 
-        {/* Right Middle Left - Telemetry */}
-        <NeonPanel className="telemetry-panel-new" color="#10B981">
-          <h2 className="panel-title">LIVE TELEMETRY</h2>
-          <div className="telemetry-grid-new">
-            {Object.entries(telemetryData).map(([driver, data]) => (
-              <div key={driver} className="telemetry-card-new">
-                <div className="telemetry-driver-new">{driver}</div>
-                <div className="telemetry-data-new">
-                  <div className="data-row">
-                    <span className="data-label">SPD</span>
-                    <span className="data-value">{data.speed}</span>
-                  </div>
-                  <div className="data-row">
-                    <span className="data-label">GEA</span>
-                    <span className="data-value">{data.gear}</span>
-                  </div>
-                  <div className="data-row">
-                    <span className="data-label">RPM</span>
-                    <span className="data-value">{data.rpm}</span>
+        {/* Right Bottom - Telemetry and Radio Container */}
+        <div className="telemetry-radio-container">
+          {/* Left - Telemetry */}
+          <NeonPanel className="telemetry-panel-new" color="#10B981">
+            <h2 className="panel-title">LIVE TELEMETRY</h2>
+            <div className="telemetry-grid-new">
+              {Object.entries(telemetryData).map(([driver, data]) => (
+                <div key={driver} className="telemetry-card-new">
+                  <div className="telemetry-driver-new">{driver}</div>
+                  <div className="telemetry-data-new">
+                    <div className="data-row">
+                      <span className="data-label">SPD</span>
+                      <span className="data-value">{data.speed}</span>
+                    </div>
+                    <div className="data-row">
+                      <span className="data-label">GEA</span>
+                      <span className="data-value">{data.gear}</span>
+                    </div>
+                    <div className="data-row">
+                      <span className="data-label">RPM</span>
+                      <span className="data-value">{data.rpm}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </NeonPanel>
+              ))}
+            </div>
+          </NeonPanel>
 
-        {/* Right Middle Right - Driver Radio */}
-        <NeonPanel className="radio-panel-new" color="#FF8700">
-          <h2 className="panel-title">DRIVER RADIO 🔊</h2>
-          <div className="radio-messages-new">
-            {driverRadio.map((msg, index) => (
-              <div key={index} className="radio-message-new">
-                <div className="radio-header-new">
-                  <span className="driver-code-radio">{msg.driver}</span>
-                  <span className="radio-time">{formatTime(msg.timestamp)}</span>
+          {/* Right - Driver Radio */}
+          <NeonPanel className="radio-panel-new" color="#FF8700">
+            <h2 className="panel-title">DRIVER RADIO 🔊</h2>
+            <div className="radio-messages-new">
+              {driverRadio.map((msg, index) => (
+                <div key={index} className="radio-message-new">
+                  <div className="radio-header-new">
+                    <span className="driver-code-radio">{msg.driver}</span>
+                    <span className="radio-time">{formatTime(msg.timestamp)}</span>
+                  </div>
+                  <div className="radio-text">{msg.message}</div>
                 </div>
-                <div className="radio-text">{msg.message}</div>
-              </div>
-            ))}
-            {driverRadio.length === 0 && (
-              <div className="no-radio">No recent radio messages</div>
-            )}
-          </div>
-        </NeonPanel>
+              ))}
+              {driverRadio.length === 0 && (
+                <div className="no-radio">No recent radio messages</div>
+              )}
+            </div>
+          </NeonPanel>
+        </div>
 
         {/* Bottom - Race Updates */}
         <NeonPanel className="updates-panel-new" color="#7C3AED">
