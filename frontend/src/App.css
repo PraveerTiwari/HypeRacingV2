@@ -1617,7 +1617,7 @@ body {
 /* Track Map */
 .track-container {
   position: relative;
-  height: 200px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1636,23 +1636,22 @@ body {
 
 .track-sectors {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 10px;
+  left: 10px;
+  right: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  align-items: flex-start;
 }
 
 .sector {
-  background: rgba(0, 210, 190, 0.2);
-  color: var(--neon-blue);
-  padding: 0.25rem 0.5rem;
+  background: rgba(220, 20, 60, 0.2);
+  color: var(--neon-red);
+  padding: 0.25rem 0.75rem;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 700;
+  border: 1px solid var(--neon-red);
 }
 
 /* Radio Panel */
