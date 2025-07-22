@@ -834,12 +834,19 @@ const LiveDashboardPage = () => {
   };
 
   const generateTelemetryData = () => {
-    return {
-      VER: { speed: Math.floor(Math.random() * 50) + 280, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
-      PIA: { speed: Math.floor(Math.random() * 50) + 275, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
-      NOR: { speed: Math.floor(Math.random() * 50) + 270, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
-      RUS: { speed: Math.floor(Math.random() * 50) + 265, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 }
-    };
+    const allDrivers = ['VER', 'HAM', 'NOR', 'PIA', 'LEC', 'RUS', 'ANT', 'PER', 'ALO', 'STR', 
+                       'GAS', 'DOO', 'HAD', 'LAW', 'HUL', 'BEA', 'ALB', 'SAI', 'BOT', 'ZHO'];
+    
+    const telemetryData = {};
+    allDrivers.forEach(driver => {
+      telemetryData[driver] = {
+        speed: Math.floor(Math.random() * 50) + 250 + (driver === 'VER' ? 30 : 0),
+        gear: Math.floor(Math.random() * 6) + 2,
+        rpm: Math.floor(Math.random() * 3000) + 9000
+      };
+    });
+    
+    return telemetryData;
   };
 
   const addRadioMessage = () => {
