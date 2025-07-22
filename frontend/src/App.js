@@ -506,6 +506,7 @@ const TeamsPage = () => {
 // Individual Team Page
 const TeamPage = () => {
   const { teamName } = useParams();
+  const navigate = useNavigate();
   const decodedTeamName = decodeURIComponent(teamName);
   const [teamDrivers, setTeamDrivers] = useState([]);
   const [messages, setMessages] = useState([]);
