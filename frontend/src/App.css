@@ -1799,11 +1799,40 @@ body {
   font-family: 'Courier New', monospace;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* iPad Optimization */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .driver-layout, .team-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .driver-info-column, .team-info-column {
+    max-width: 100%;
+  }
+  
+  .analytics-column {
+    max-width: 100%;
+  }
+  
+  .pitwall-column {
+    max-width: 100%;
+  }
+  
+  .race-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .dashboard-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto;
+    gap: 1.5rem;
   }
   
   .positions-panel {
@@ -1837,6 +1866,7 @@ body {
   }
 }
 
+/* iPhone and Small Tablets */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
