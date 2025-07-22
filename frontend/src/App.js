@@ -147,7 +147,7 @@ const HomePage = () => {
         </NeonPanel>
 
         {/* Championship Leaders Preview */}
-        <NeonPanel className="drivers-preview" color="#FF8700">
+        <NeonPanel className="drivers-preview" color="#FFFFFF">
           <h2 className="section-title">CHAMPIONSHIP LEADERS</h2>
           <div className="drivers-grid">
             {drivers.map((driver, index) => (
