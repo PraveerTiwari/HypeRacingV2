@@ -980,6 +980,14 @@ body {
   background: var(--bg-primary);
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.driver-info-row:hover {
+  background: var(--bg-secondary);
+  transform: translateX(3px);
+  box-shadow: 0 3px 10px rgba(0, 210, 190, 0.15);
 }
 
 .driver-info-row .driver-name {
