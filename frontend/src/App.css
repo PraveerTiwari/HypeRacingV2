@@ -1388,7 +1388,255 @@ body {
 }
 
 
-/* Live Dashboard Page */
+/* New Dashboard Design */
+.weather-race-header {
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.race-title-section .race-name {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.race-title-section .session-info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.weather-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.weather-item-header {
+  text-align: center;
+}
+
+.weather-item-header .weather-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.weather-item-header .weather-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  font-family: 'Courier New', monospace;
+}
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.positions-panel-new {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  height: 800px;
+  overflow: hidden;
+}
+
+.positions-list-new {
+  height: 720px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.position-row-new {
+  display: grid;
+  grid-template-columns: 50px 8px 60px 1fr 80px 100px 50px;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--team-color);
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.position-row-new:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 210, 190, 0.2);
+}
+
+.clickable-driver-name {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+
+.clickable-driver-name:hover {
+  color: var(--neon-blue) !important;
+  text-decoration-color: var(--neon-blue);
+  transform: scale(1.1);
+}
+
+.trackmap-panel-new {
+  grid-column: 2;
+  grid-row: 1;
+  height: 250px;
+}
+
+.track-container-new {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telemetry-panel-new {
+  grid-column: 2;
+  grid-row: 2;
+  height: 250px;
+  width: 48%;
+}
+
+.radio-panel-new {
+  grid-column: 2;
+  grid-row: 2;
+  height: 250px;
+  width: 48%;
+  margin-left: 52%;
+}
+
+.updates-panel-new {
+  grid-column: 2;
+  grid-row: 3;
+  height: 280px;
+}
+
+.telemetry-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  height: 180px;
+  overflow-y: auto;
+}
+
+.telemetry-card-new {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid #10b981;
+}
+
+.telemetry-driver-new {
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.telemetry-data-new {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-row .data-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.data-row .data-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+}
+
+.radio-messages-new {
+  height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radio-message-new {
+  background: var(--bg-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid var(--neon-orange);
+}
+
+.radio-header-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.driver-code-radio {
+  font-weight: 700;
+  color: var(--neon-orange);
+  font-size: 0.9rem;
+}
+
+.radio-text {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.updates-list-new {
+  height: 210px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.update-item-new {
+  background: var(--bg-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid #7c3aed;
+  display: flex;
+  gap: 1rem;
+}
+
+.update-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 60px;
+}
+
+.update-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  flex: 1;
+}
 .live-dashboard-page {
   position: relative;
   z-index: 1;
