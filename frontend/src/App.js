@@ -744,6 +744,7 @@ const LiveDashboardPage = () => {
   const [driverRadio, setDriverRadio] = useState([]);
   const [raceUpdates, setRaceUpdates] = useState([]);
   const [telemetryData, setTelemetryData] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Initialize SignalR connection simulation
@@ -761,6 +762,7 @@ const LiveDashboardPage = () => {
         sessionTime: formatTime(Date.now()),
         sessionType: 'RACE',
         trackStatus: 'GREEN',
+        raceName: 'BELGIAN GRAND PRIX',
         positions: generateLivePositions(),
         weather: {
           airTemp: Math.floor(Math.random() * 10) + 20,
@@ -800,22 +802,32 @@ const LiveDashboardPage = () => {
 
   const generateLivePositions = () => {
     const drivers = [
-      { pos: 1, driver: 'VER', team: 'Red Bull Racing', gap: '+0.000', lastLap: '1:23.456', sector: 'S2' },
-      { pos: 2, driver: 'PIA', team: 'McLaren', gap: '+0.234', lastLap: '1:23.690', sector: 'S1' },
-      { pos: 3, driver: 'NOR', team: 'McLaren', gap: '+1.567', lastLap: '1:25.023', sector: 'S3' },
-      { pos: 4, driver: 'RUS', team: 'Mercedes', gap: '+2.890', lastLap: '1:24.346', sector: 'S2' },
-      { pos: 5, driver: 'LEC', team: 'Ferrari', gap: '+3.456', lastLap: '1:24.912', sector: 'S1' },
-      { pos: 6, driver: 'HAM', team: 'Mercedes', gap: '+4.123', lastLap: '1:25.579', sector: 'S3' },
-      { pos: 7, driver: 'SAI', team: 'Ferrari', gap: '+5.789', lastLap: '1:26.234', sector: 'S2' },
-      { pos: 8, driver: 'PER', team: 'Red Bull Racing', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' },
-      { pos: 9, driver: 'ALO', team: 'Aston Martin', gap: '+7.456', lastLap: '1:27.123', sector: 'S3' },
-      { pos: 10, driver: 'STR', team: 'Aston Martin', gap: '+8.789', lastLap: '1:27.890', sector: 'S2' }
+      { pos: 1, driver: 'VER', driverId: 'max_verstappen', team: 'Red Bull Racing', gap: '+0.000', lastLap: '1:23.456', sector: 'S2' },
+      { pos: 2, driver: 'PIA', driverId: 'oscar_piastri', team: 'McLaren', gap: '+0.234', lastLap: '1:23.690', sector: 'S1' },
+      { pos: 3, driver: 'NOR', driverId: 'lando_norris', team: 'McLaren', gap: '+1.567', lastLap: '1:25.023', sector: 'S3' },
+      { pos: 4, driver: 'RUS', driverId: 'george_russell', team: 'Mercedes', gap: '+2.890', lastLap: '1:24.346', sector: 'S2' },
+      { pos: 5, driver: 'LEC', driverId: 'charles_leclerc', team: 'Ferrari', gap: '+3.456', lastLap: '1:24.912', sector: 'S1' },
+      { pos: 6, driver: 'HAM', driverId: 'lewis_hamilton', team: 'Mercedes', gap: '+4.123', lastLap: '1:25.579', sector: 'S3' },
+      { pos: 7, driver: 'SAI', driverId: 'carlos_sainz', team: 'Ferrari', gap: '+5.789', lastLap: '1:26.234', sector: 'S2' },
+      { pos: 8, driver: 'PER', driverId: 'sergio_perez', team: 'Red Bull Racing', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' },
+      { pos: 9, driver: 'ALO', driverId: 'fernando_alonso', team: 'Aston Martin', gap: '+7.456', lastLap: '1:27.123', sector: 'S3' },
+      { pos: 10, driver: 'STR', driverId: 'lance_stroll', team: 'Aston Martin', gap: '+8.789', lastLap: '1:27.890', sector: 'S2' },
+      { pos: 11, driver: 'TSU', driverId: 'yuki_tsunoda', team: 'RB F1 Team', gap: '+9.123', lastLap: '1:28.456', sector: 'S1' },
+      { pos: 12, driver: 'RIC', driverId: 'daniel_ricciardo', team: 'RB F1 Team', gap: '+10.567', lastLap: '1:29.123', sector: 'S3' },
+      { pos: 13, driver: 'GAS', driverId: 'pierre_gasly', team: 'Alpine F1 Team', gap: '+11.890', lastLap: '1:29.789', sector: 'S2' },
+      { pos: 14, driver: 'OCO', driverId: 'esteban_ocon', team: 'Alpine F1 Team', gap: '+12.456', lastLap: '1:30.234', sector: 'S1' },
+      { pos: 15, driver: 'HUL', driverId: 'nico_hulkenberg', team: 'Haas F1 Team', gap: '+13.789', lastLap: '1:30.890', sector: 'S3' },
+      { pos: 16, driver: 'MAG', driverId: 'kevin_magnussen', team: 'Haas F1 Team', gap: '+14.123', lastLap: '1:31.456', sector: 'S2' },
+      { pos: 17, driver: 'ALB', driverId: 'alexander_albon', team: 'Williams', gap: '+15.567', lastLap: '1:32.123', sector: 'S1' },
+      { pos: 18, driver: 'COL', driverId: 'franco_colapinto', team: 'Williams', gap: '+16.890', lastLap: '1:32.789', sector: 'S3' },
+      { pos: 19, driver: 'BOT', driverId: 'valtteri_bottas', team: 'Kick Sauber', gap: '+17.456', lastLap: '1:33.234', sector: 'S2' },
+      { pos: 20, driver: 'ZHO', driverId: 'guanyu_zhou', team: 'Kick Sauber', gap: '+18.123', lastLap: '1:33.890', sector: 'S1' }
     ];
 
     // Add some randomness to gaps and lap times
     return drivers.map(driver => ({
       ...driver,
-      gap: driver.pos === 1 ? '+0.000' : `+${(Math.random() * 10 + driver.pos * 0.5).toFixed(3)}`,
+      gap: driver.pos === 1 ? '+0.000' : `+${(Math.random() * 10 + driver.pos * 0.8).toFixed(3)}`,
       lastLap: `1:2${Math.floor(Math.random() * 7) + 3}.${Math.floor(Math.random() * 999).toString().padStart(3, '0')}`,
       teamColor: TEAM_COLORS[driver.team] || '#00D2BE'
     }));
@@ -825,7 +837,8 @@ const LiveDashboardPage = () => {
     return {
       VER: { speed: Math.floor(Math.random() * 50) + 280, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
       PIA: { speed: Math.floor(Math.random() * 50) + 275, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
-      NOR: { speed: Math.floor(Math.random() * 50) + 270, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 }
+      NOR: { speed: Math.floor(Math.random() * 50) + 270, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 },
+      RUS: { speed: Math.floor(Math.random() * 50) + 265, gear: Math.floor(Math.random() * 6) + 3, rpm: Math.floor(Math.random() * 3000) + 10000 }
     };
   };
 
@@ -835,11 +848,13 @@ const LiveDashboardPage = () => {
       { driver: 'PIA', message: 'Tires are feeling good, great grip.', timestamp: Date.now() },
       { driver: 'NOR', message: 'DRS not working properly.', timestamp: Date.now() },
       { driver: 'RUS', message: 'Traffic ahead, losing time.', timestamp: Date.now() },
-      { driver: 'LEC', message: 'Push now, we can catch them.', timestamp: Date.now() }
+      { driver: 'LEC', message: 'Push now, we can catch them.', timestamp: Date.now() },
+      { driver: 'HAM', message: 'These mediums are dropping off.', timestamp: Date.now() },
+      { driver: 'SAI', message: 'Copy that, understood.', timestamp: Date.now() }
     ];
     
     const newMessage = messages[Math.floor(Math.random() * messages.length)];
-    setDriverRadio(prev => [newMessage, ...prev.slice(0, 9)]);
+    setDriverRadio(prev => [newMessage, ...prev.slice(0, 4)]);
   };
 
   const addRaceUpdate = () => {
@@ -849,7 +864,9 @@ const LiveDashboardPage = () => {
       'Yellow flag in sector 2',
       'Pit lane open',
       'Track conditions improving',
-      'Rain expected in 10 minutes'
+      'Rain expected in 10 minutes',
+      'Safety Car deployed',
+      'Race resumed'
     ];
     
     const newUpdate = {
@@ -857,7 +874,7 @@ const LiveDashboardPage = () => {
       timestamp: Date.now()
     };
     
-    setRaceUpdates(prev => [newUpdate, ...prev.slice(0, 7)]);
+    setRaceUpdates(prev => [newUpdate, ...prev.slice(0, 4)]);
   };
 
   if (!liveData) {
@@ -872,10 +889,11 @@ const LiveDashboardPage = () => {
     <div className="live-dashboard-page">
       <div className="grid-background"></div>
       
-      <div className="dashboard-header">
-        <div className="session-info">
-          <h1 className="session-title">{liveData.sessionType}</h1>
-          <div className="session-details">
+      {/* Top Weather Bar */}
+      <div className="weather-race-header">
+        <div className="race-title-section">
+          <h1 className="race-name">{liveData.raceName}</h1>
+          <div className="session-info">
             <span className="session-time">{liveData.sessionTime}</span>
             <span className={`track-status ${liveData.trackStatus.toLowerCase()}`}>
               <div className="status-indicator"></div>
@@ -884,21 +902,39 @@ const LiveDashboardPage = () => {
           </div>
         </div>
         
-        <div className="connection-status">
-          <div className={`connection-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
-          <span>{isConnected ? 'LIVE' : 'OFFLINE'}</span>
+        <div className="weather-header">
+          <div className="weather-item-header">
+            <span className="weather-label">AIR</span>
+            <span className="weather-value">{liveData.weather.airTemp}°C</span>
+          </div>
+          <div className="weather-item-header">
+            <span className="weather-label">TRACK</span>
+            <span className="weather-value">{liveData.weather.trackTemp}°C</span>
+          </div>
+          <div className="weather-item-header">
+            <span className="weather-label">HUMIDITY</span>
+            <span className="weather-value">{liveData.weather.humidity}%</span>
+          </div>
+          <div className="weather-item-header">
+            <span className="weather-label">WIND</span>
+            <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
+          </div>
+          <div className="connection-status">
+            <div className={`connection-dot ${isConnected ? 'connected' : 'disconnected'}`}></div>
+            <span>{isConnected ? 'LIVE' : 'OFFLINE'}</span>
+          </div>
         </div>
       </div>
 
-      <div className="dashboard-grid">
-        {/* Main Positions - Left Side */}
-        <NeonPanel className="positions-panel" color="#00D2BE">
+      <div className="dashboard-main-grid">
+        {/* Left - Driver Positions (Full Height) */}
+        <NeonPanel className="positions-panel-new" color="#00D2BE">
           <h2 className="panel-title">RACE POSITIONS</h2>
-          <div className="positions-list">
+          <div className="positions-list-new">
             {liveData.positions.map((driver, index) => (
               <div 
                 key={driver.pos} 
-                className={`position-row pos-${driver.pos}`}
+                className="position-row-new"
                 style={{ '--team-color': driver.teamColor }}
               >
                 <div className="position-number">P{driver.pos}</div>
@@ -906,8 +942,13 @@ const LiveDashboardPage = () => {
                   className="team-indicator"
                   style={{ backgroundColor: driver.teamColor }}
                 ></div>
-                <div className="driver-code">{driver.driver}</div>
-                <div className="team-name-short">{driver.team}</div>
+                <div 
+                  className="driver-code clickable-driver-name"
+                  onClick={() => navigate(`/driver/${driver.driverId}`)}
+                >
+                  {driver.driver}
+                </div>
+                <div className="team-name-short">{driver.team.replace(' F1 Team', '').replace(' Racing', '')}</div>
                 <div className="gap-time">{driver.gap}</div>
                 <div className="last-lap">{driver.lastLap}</div>
                 <div className={`sector-indicator ${driver.sector.toLowerCase()}`}>{driver.sector}</div>
@@ -916,60 +957,51 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Track Map - Right Side Top */}
-        <NeonPanel className="trackmap-panel" color="#DC143C">
+        {/* Right Top - Track Map */}
+        <NeonPanel className="trackmap-panel-new" color="#DC143C">
           <h2 className="panel-title">TRACK MAP - SPA-FRANCORCHAMPS</h2>
-          <div className="track-container">
+          <div className="track-container-new">
             <div className="track-outline">
-              <div className="track-path">
-                <svg viewBox="0 0 500 300" className="track-svg">
-                  {/* Spa-Francorchamps track outline - larger and better proportioned */}
-                  <path
-                    d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
-                    stroke="#333"
-                    strokeWidth="16"
-                    fill="none"
-                  />
-                  <path
-                    d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
-                    stroke="#DC143C"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-                  {/* Driver positions on track - better positioned */}
-                  <circle cx="140" cy="215" r="5" fill="#0600EF" />
-                  <circle cx="220" cy="190" r="5" fill="#FF8700" />
-                  <circle cx="300" cy="165" r="5" fill="#FF8700" />
-                  <circle cx="380" cy="145" r="5" fill="#00D2BE" />
-                  <circle cx="450" cy="155" r="5" fill="#DC143C" />
-                </svg>
-              </div>
-              <div className="track-sectors">
-                <div className="sector sector-1">SECTOR 1</div>
-                <div className="sector sector-2">SECTOR 2</div>
-                <div className="sector sector-3">SECTOR 3</div>
-              </div>
+              <svg viewBox="0 0 400 200" className="track-svg">
+                <path
+                  d="M60 160 L100 145 Q140 130 180 120 Q220 110 260 105 Q300 100 330 110 Q350 120 340 135 L325 150 Q300 165 270 170 L210 175 Q170 178 130 175 L60 160"
+                  stroke="#333"
+                  strokeWidth="12"
+                  fill="none"
+                />
+                <path
+                  d="M60 160 L100 145 Q140 130 180 120 Q220 110 260 105 Q300 100 330 110 Q350 120 340 135 L325 150 Q300 165 270 170 L210 175 Q170 178 130 175 L60 160"
+                  stroke="#DC143C"
+                  strokeWidth="3"
+                  fill="none"
+                />
+                <circle cx="110" cy="150" r="3" fill="#0600EF" />
+                <circle cx="160" cy="125" r="3" fill="#FF8700" />
+                <circle cx="210" cy="115" r="3" fill="#FF8700" />
+                <circle cx="280" cy="108" r="3" fill="#00D2BE" />
+                <circle cx="320" cy="125" r="3" fill="#DC143C" />
+              </svg>
             </div>
           </div>
         </NeonPanel>
 
-        {/* Telemetry - Right Side Middle */}
-        <NeonPanel className="telemetry-panel" color="#10B981">
+        {/* Right Middle Left - Telemetry */}
+        <NeonPanel className="telemetry-panel-new" color="#10B981">
           <h2 className="panel-title">LIVE TELEMETRY</h2>
-          <div className="telemetry-grid">
+          <div className="telemetry-grid-new">
             {Object.entries(telemetryData).map(([driver, data]) => (
-              <div key={driver} className="telemetry-card">
-                <div className="telemetry-driver">{driver}</div>
-                <div className="telemetry-data">
-                  <div className="data-item">
-                    <span className="data-label">SPEED</span>
+              <div key={driver} className="telemetry-card-new">
+                <div className="telemetry-driver-new">{driver}</div>
+                <div className="telemetry-data-new">
+                  <div className="data-row">
+                    <span className="data-label">SPD</span>
                     <span className="data-value">{data.speed}</span>
                   </div>
-                  <div className="data-item">
-                    <span className="data-label">GEAR</span>
+                  <div className="data-row">
+                    <span className="data-label">GEA</span>
                     <span className="data-value">{data.gear}</span>
                   </div>
-                  <div className="data-item">
+                  <div className="data-row">
                     <span className="data-label">RPM</span>
                     <span className="data-value">{data.rpm}</span>
                   </div>
@@ -979,54 +1011,14 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Updates and Weather Container - Right Side Bottom */}
-        <div className="updates-weather-container">
-          <NeonPanel className="updates-panel" color="#7C3AED">
-            <h2 className="panel-title">RACE UPDATES</h2>
-            <div className="updates-list">
-              {raceUpdates.map((update, index) => (
-                <div key={index} className="update-item">
-                  <div className="update-time">{formatTime(update.timestamp)}</div>
-                  <div className="update-message">{update.message}</div>
-                </div>
-              ))}
-              {raceUpdates.length === 0 && (
-                <div className="no-updates">No recent updates</div>
-              )}
-            </div>
-          </NeonPanel>
-
-          <NeonPanel className="weather-panel" color="#F59E0B">
-            <h2 className="panel-title">WEATHER</h2>
-            <div className="weather-data">
-              <div className="weather-item">
-                <span className="weather-label">AIR</span>
-                <span className="weather-value">{liveData.weather.airTemp}°C</span>
-              </div>
-              <div className="weather-item">
-                <span className="weather-label">TRACK</span>
-                <span className="weather-value">{liveData.weather.trackTemp}°C</span>
-              </div>
-              <div className="weather-item">
-                <span className="weather-label">HUMIDITY</span>
-                <span className="weather-value">{liveData.weather.humidity}%</span>
-              </div>
-              <div className="weather-item">
-                <span className="weather-label">WIND</span>
-                <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
-              </div>
-            </div>
-          </NeonPanel>
-        </div>
-
-        {/* Driver Radio - Bottom Full Width */}
-        <NeonPanel className="radio-panel" color="#FF8700">
-          <h2 className="panel-title">DRIVER RADIO</h2>
-          <div className="radio-messages">
+        {/* Right Middle Right - Driver Radio */}
+        <NeonPanel className="radio-panel-new" color="#FF8700">
+          <h2 className="panel-title">DRIVER RADIO 🔊</h2>
+          <div className="radio-messages-new">
             {driverRadio.map((msg, index) => (
-              <div key={index} className="radio-message">
-                <div className="radio-header">
-                  <span className="driver-code">{msg.driver}</span>
+              <div key={index} className="radio-message-new">
+                <div className="radio-header-new">
+                  <span className="driver-code-radio">{msg.driver}</span>
                   <span className="radio-time">{formatTime(msg.timestamp)}</span>
                 </div>
                 <div className="radio-text">{msg.message}</div>
@@ -1034,6 +1026,22 @@ const LiveDashboardPage = () => {
             ))}
             {driverRadio.length === 0 && (
               <div className="no-radio">No recent radio messages</div>
+            )}
+          </div>
+        </NeonPanel>
+
+        {/* Bottom - Race Updates */}
+        <NeonPanel className="updates-panel-new" color="#7C3AED">
+          <h2 className="panel-title">RACE CONTROL UPDATES</h2>
+          <div className="updates-list-new">
+            {raceUpdates.map((update, index) => (
+              <div key={index} className="update-item-new">
+                <div className="update-time">{formatTime(update.timestamp)}</div>
+                <div className="update-message">{update.message}</div>
+              </div>
+            ))}
+            {raceUpdates.length === 0 && (
+              <div className="no-updates">No recent updates</div>
             )}
           </div>
         </NeonPanel>
