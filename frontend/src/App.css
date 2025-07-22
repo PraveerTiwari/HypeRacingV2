@@ -1495,7 +1495,7 @@ body {
 .trackmap-panel-new {
   grid-column: 2;
   grid-row: 1;
-  height: 250px;
+  height: 400px;
 }
 
 .track-container-new {
