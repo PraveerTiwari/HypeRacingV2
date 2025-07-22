@@ -212,7 +212,7 @@ body {
 }
 
 .home-grid {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   display: grid;
@@ -223,7 +223,7 @@ body {
 
 .dashboard-link, .news-section, .drivers-preview {
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 .dashboard-link {
