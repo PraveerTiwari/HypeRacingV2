@@ -1536,7 +1536,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  height: 180px;
+  height: 310px;
   overflow-y: auto;
 }
 
@@ -1546,6 +1546,7 @@ body {
   border-radius: 6px;
   padding: 0.75rem;
   border-left: 3px solid #10b981;
+  height: fit-content;
 }
 
 .telemetry-driver-new {
@@ -1581,11 +1582,12 @@ body {
 }
 
 .radio-messages-new {
-  height: 180px;
+  height: 310px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding-right: 0.5rem;
 }
 
 .radio-message-new {
@@ -1612,14 +1614,16 @@ body {
   color: var(--text-primary);
   font-size: 0.8rem;
   font-style: italic;
+  line-height: 1.4;
 }
 
 .updates-list-new {
-  height: 210px;
+  height: 230px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding-right: 0.5rem;
 }
 
 .update-item-new {
@@ -1629,6 +1633,7 @@ body {
   border-left: 3px solid #7c3aed;
   display: flex;
   gap: 1rem;
+  align-items: flex-start;
 }
 
 .update-time {
@@ -1636,12 +1641,14 @@ body {
   font-size: 0.8rem;
   color: var(--text-muted);
   min-width: 60px;
+  flex-shrink: 0;
 }
 
 .update-message {
   color: var(--text-primary);
   font-size: 0.9rem;
   flex: 1;
+  line-height: 1.4;
 }
 .live-dashboard-page {
   position: relative;
