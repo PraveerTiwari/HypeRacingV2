@@ -979,43 +979,45 @@ const LiveDashboardPage = () => {
           </div>
         </NeonPanel>
 
-        {/* Updates and Weather - Right Side Bottom */}
-        <NeonPanel className="updates-panel" color="#7C3AED">
-          <h2 className="panel-title">RACE UPDATES</h2>
-          <div className="updates-list">
-            {raceUpdates.map((update, index) => (
-              <div key={index} className="update-item">
-                <div className="update-time">{formatTime(update.timestamp)}</div>
-                <div className="update-message">{update.message}</div>
-              </div>
-            ))}
-            {raceUpdates.length === 0 && (
-              <div className="no-updates">No recent updates</div>
-            )}
-          </div>
-        </NeonPanel>
+        {/* Updates and Weather Container - Right Side Bottom */}
+        <div className="updates-weather-container">
+          <NeonPanel className="updates-panel" color="#7C3AED">
+            <h2 className="panel-title">RACE UPDATES</h2>
+            <div className="updates-list">
+              {raceUpdates.map((update, index) => (
+                <div key={index} className="update-item">
+                  <div className="update-time">{formatTime(update.timestamp)}</div>
+                  <div className="update-message">{update.message}</div>
+                </div>
+              ))}
+              {raceUpdates.length === 0 && (
+                <div className="no-updates">No recent updates</div>
+              )}
+            </div>
+          </NeonPanel>
 
-        <NeonPanel className="weather-panel" color="#F59E0B">
-          <h2 className="panel-title">WEATHER</h2>
-          <div className="weather-data">
-            <div className="weather-item">
-              <span className="weather-label">AIR</span>
-              <span className="weather-value">{liveData.weather.airTemp}°C</span>
+          <NeonPanel className="weather-panel" color="#F59E0B">
+            <h2 className="panel-title">WEATHER</h2>
+            <div className="weather-data">
+              <div className="weather-item">
+                <span className="weather-label">AIR</span>
+                <span className="weather-value">{liveData.weather.airTemp}°C</span>
+              </div>
+              <div className="weather-item">
+                <span className="weather-label">TRACK</span>
+                <span className="weather-value">{liveData.weather.trackTemp}°C</span>
+              </div>
+              <div className="weather-item">
+                <span className="weather-label">HUMIDITY</span>
+                <span className="weather-value">{liveData.weather.humidity}%</span>
+              </div>
+              <div className="weather-item">
+                <span className="weather-label">WIND</span>
+                <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
+              </div>
             </div>
-            <div className="weather-item">
-              <span className="weather-label">TRACK</span>
-              <span className="weather-value">{liveData.weather.trackTemp}°C</span>
-            </div>
-            <div className="weather-item">
-              <span className="weather-label">HUMIDITY</span>
-              <span className="weather-value">{liveData.weather.humidity}%</span>
-            </div>
-            <div className="weather-item">
-              <span className="weather-label">WIND</span>
-              <span className="weather-value">{liveData.weather.windSpeed} km/h</span>
-            </div>
-          </div>
-        </NeonPanel>
+          </NeonPanel>
+        </div>
 
         {/* Driver Radio - Bottom Full Width */}
         <NeonPanel className="radio-panel" color="#FF8700">
