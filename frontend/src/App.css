@@ -1501,6 +1501,7 @@ body {
 .telemetry-panel {
   grid-column: 2;
   grid-row: 2;
+  height: 250px;
 }
 
 .updates-weather-container {
