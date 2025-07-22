@@ -853,7 +853,18 @@ body {
   cursor: not-allowed;
 }
 
-/* Race Analytics Panel */
+/* Clickable Driver Names */
+.clickable-driver {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+
+.clickable-driver:hover {
+  color: var(--neon-blue) !important;
+  text-decoration-color: var(--neon-blue);
+}
 .race-analytics-panel {
   margin-bottom: 2rem;
 }
