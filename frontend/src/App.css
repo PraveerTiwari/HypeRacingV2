@@ -1912,22 +1912,34 @@ body {
     font-size: 1.5rem;
   }
   
-  .driver-layout, .team-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .drivers-grid, .teams-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-  
   .race-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
   .analytics-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .driver-layout, .team-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .race-analytics-panel,
+  .analytics-panel,
+  .mini-pitwall {
+    margin-bottom: 1.5rem;
+  }
+  
+  .driver-info-column .neon-panel,
+  .team-info-column .neon-panel {
+    padding: 1.5rem;
+  }
+  
+  .chat-container {
+    height: 300px;
   }
   
   .dashboard-grid {
