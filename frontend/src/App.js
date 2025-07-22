@@ -862,7 +862,10 @@ const LiveDashboardPage = () => {
       { driver: 'ALO', message: 'Strategy looking good from here.', timestamp: Date.now() },
       { driver: 'GAS', message: 'Alpine pace is strong today.', timestamp: Date.now() },
       { driver: 'SAI', message: 'Williams setup working well.', timestamp: Date.now() },
-      { driver: 'BEA', message: 'First season going well so far.', timestamp: Date.now() }
+      { driver: 'BEA', message: 'First season going well so far.', timestamp: Date.now() },
+      { driver: 'HUL', message: 'Kick Sauber feeling competitive.', timestamp: Date.now() },
+      { driver: 'BOR', message: 'Great to be racing in F1.', timestamp: Date.now() },
+      { driver: 'COL', message: 'Haas car balance is good.', timestamp: Date.now() }
     ];
     
     const newMessage = messages[Math.floor(Math.random() * messages.length)];
