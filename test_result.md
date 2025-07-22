@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the HypeRacing F1 Analytics backend with comprehensive checks including API health, F1 data integration, AI Pit Wall functionality, database operations, and error handling."
+user_problem_statement: "Complete the HypeRacing F1 dashboard updates: (1) Update dashboard to reflect 2025 F1 driver lineup, (2) Make telemetry panel scrollable to display all drivers' telemetry data, (3) Ensure no spillover or overflow in any panels on the dashboard."
 
 backend:
   - task: "API Health Check"
