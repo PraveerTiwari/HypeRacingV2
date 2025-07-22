@@ -871,7 +871,7 @@ body {
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
-  border-left: 3px solid #7c3aed;
+  border-left: 3px solid var(--neon-color);
 }
 
 .race-stat-card .stat-title {
@@ -885,7 +885,7 @@ body {
 .race-stat-card .stat-value {
   font-size: 1.5rem;
   font-weight: 900;
-  color: #7c3aed;
+  color: var(--neon-color);
   font-family: 'Courier New', monospace;
 }
 
@@ -894,12 +894,12 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
-  border-left: 4px solid #7c3aed;
+  border-left: 4px solid var(--neon-color);
 }
 
 .insight-title {
   font-size: 1rem;
-  color: #7c3aed;
+  color: var(--neon-color);
   margin-bottom: 1rem;
   font-weight: 700;
   letter-spacing: 0.05em;
