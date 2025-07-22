@@ -852,12 +852,17 @@ const LiveDashboardPage = () => {
   const addRadioMessage = () => {
     const messages = [
       { driver: 'VER', message: 'Box this lap, box box!', timestamp: Date.now() },
-      { driver: 'PIA', message: 'Tires are feeling good, great grip.', timestamp: Date.now() },
+      { driver: 'HAM', message: 'Ferrari feels amazing, great balance.', timestamp: Date.now() },
       { driver: 'NOR', message: 'DRS not working properly.', timestamp: Date.now() },
-      { driver: 'RUS', message: 'Traffic ahead, losing time.', timestamp: Date.now() },
+      { driver: 'PIA', message: 'Traffic ahead, losing time.', timestamp: Date.now() },
       { driver: 'LEC', message: 'Push now, we can catch them.', timestamp: Date.now() },
-      { driver: 'HAM', message: 'These mediums are dropping off.', timestamp: Date.now() },
-      { driver: 'SAI', message: 'Copy that, understood.', timestamp: Date.now() }
+      { driver: 'RUS', message: 'These mediums are dropping off.', timestamp: Date.now() },
+      { driver: 'ANT', message: 'Learning the car, feeling good.', timestamp: Date.now() },
+      { driver: 'PER', message: 'Copy that, understood.', timestamp: Date.now() },
+      { driver: 'ALO', message: 'Strategy looking good from here.', timestamp: Date.now() },
+      { driver: 'GAS', message: 'Alpine pace is strong today.', timestamp: Date.now() },
+      { driver: 'SAI', message: 'Williams setup working well.', timestamp: Date.now() },
+      { driver: 'BEA', message: 'First season going well so far.', timestamp: Date.now() }
     ];
     
     const newMessage = messages[Math.floor(Math.random() * messages.length)];
