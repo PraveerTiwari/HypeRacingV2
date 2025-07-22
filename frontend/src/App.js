@@ -922,26 +922,26 @@ const LiveDashboardPage = () => {
           <div className="track-container">
             <div className="track-outline">
               <div className="track-path">
-                <svg viewBox="0 0 400 250" className="track-svg">
-                  {/* Spa-Francorchamps track outline */}
+                <svg viewBox="0 0 500 300" className="track-svg">
+                  {/* Spa-Francorchamps track outline - larger and better proportioned */}
                   <path
-                    d="M50 200 L100 180 Q150 160 200 140 Q250 120 300 110 Q350 100 380 120 Q390 140 370 160 L350 180 Q320 200 280 210 L200 220 Q150 225 100 220 L50 200"
+                    d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
                     stroke="#333"
-                    strokeWidth="12"
+                    strokeWidth="16"
                     fill="none"
                   />
                   <path
-                    d="M50 200 L100 180 Q150 160 200 140 Q250 120 300 110 Q350 100 380 120 Q390 140 370 160 L350 180 Q320 200 280 210 L200 220 Q150 225 100 220 L50 200"
+                    d="M60 240 L120 220 Q180 200 240 175 Q300 150 360 140 Q420 130 470 150 Q490 170 480 190 L460 210 Q430 230 380 240 L300 250 Q240 255 180 250 L60 240"
                     stroke="#DC143C"
-                    strokeWidth="3"
+                    strokeWidth="4"
                     fill="none"
                   />
-                  {/* Driver positions on track */}
-                  <circle cx="120" cy="175" r="4" fill="#0600EF" />
-                  <circle cx="180" cy="150" r="4" fill="#FF8700" />
-                  <circle cx="250" cy="125" r="4" fill="#FF8700" />
-                  <circle cx="320" cy="115" r="4" fill="#00D2BE" />
-                  <circle cx="360" cy="135" r="4" fill="#DC143C" />
+                  {/* Driver positions on track - better positioned */}
+                  <circle cx="140" cy="215" r="5" fill="#0600EF" />
+                  <circle cx="220" cy="190" r="5" fill="#FF8700" />
+                  <circle cx="300" cy="165" r="5" fill="#FF8700" />
+                  <circle cx="380" cy="145" r="5" fill="#00D2BE" />
+                  <circle cx="450" cy="155" r="5" fill="#DC143C" />
                 </svg>
               </div>
               <div className="track-sectors">
