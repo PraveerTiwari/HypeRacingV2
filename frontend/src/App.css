@@ -1509,16 +1509,17 @@ body {
   grid-row: 3;
   display: flex;
   gap: 1rem;
+  height: 220px;
 }
 
 .updates-panel {
   flex: 1;
-  height: 200px;
+  height: 100%;
 }
 
 .weather-panel {
   flex: 1;
-  height: 200px;
+  height: 100%;
 }
 
 .radio-panel {
