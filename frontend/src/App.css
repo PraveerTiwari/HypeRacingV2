@@ -1531,33 +1531,32 @@ body {
 
 .position-row {
   display: grid;
-  grid-template-columns: 60px 80px 1fr 100px 120px 60px;
+  grid-template-columns: 50px 12px 60px 1fr 100px 120px 60px;
   align-items: center;
   padding: 1rem;
   background: var(--bg-primary);
   border-radius: 8px;
-  border-left: 4px solid var(--neon-blue);
+  border-left: 4px solid var(--team-color);
   transition: all 0.3s ease;
-}
-
-.position-row.pos-1 {
-  border-left-color: #fbbf24;
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, var(--bg-primary) 100%);
-}
-
-.position-row.pos-2 {
-  border-left-color: #9ca3af;
-  background: linear-gradient(135deg, rgba(156, 163, 175, 0.1) 0%, var(--bg-primary) 100%);
-}
-
-.position-row.pos-3 {
-  border-left-color: #ea580c;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, var(--bg-primary) 100%);
+  margin-bottom: 0.5rem;
 }
 
 .position-row:hover {
   transform: translateX(5px);
   box-shadow: 0 5px 15px rgba(0, 210, 190, 0.2);
+}
+
+.team-indicator {
+  width: 8px;
+  height: 30px;
+  border-radius: 4px;
+  background: var(--team-color);
+}
+
+.team-name-short {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .position-number {
