@@ -993,11 +993,41 @@ const LiveDashboardPage = () => {
                   strokeWidth="4"
                   fill="none"
                 />
-                <circle cx="140" cy="215" r="4" fill="#0600EF" />
-                <circle cx="220" cy="190" r="4" fill="#FF8700" />
-                <circle cx="300" cy="165" r="4" fill="#FF8700" />
-                <circle cx="380" cy="145" r="4" fill="#00D2BE" />
-                <circle cx="450" cy="155" r="4" fill="#DC143C" />
+                {/* Dynamic driver positions on track */}
+                {liveData.positions.slice(0, 8).map((driver, index) => {
+                  const trackPositions = [
+                    { x: 140, y: 215 }, // P1
+                    { x: 180, y: 205 }, // P2
+                    { x: 220, y: 190 }, // P3
+                    { x: 260, y: 178 }, // P4
+                    { x: 300, y: 165 }, // P5
+                    { x: 340, y: 152 }, // P6
+                    { x: 380, y: 145 }, // P7
+                    { x: 420, y: 148 }  // P8
+                  ];
+                  const pos = trackPositions[index];
+                  
+                  return (
+                    <g key={driver.pos}>
+                      <circle 
+                        cx={pos.x} 
+                        cy={pos.y} 
+                        r="4" 
+                        fill={driver.teamColor} 
+                      />
+                      <text 
+                        x={pos.x + 8} 
+                        y={pos.y + 4} 
+                        fill="#FFFFFF" 
+                        fontSize="10" 
+                        fontWeight="bold"
+                        fontFamily="monospace"
+                      >
+                        {driver.driver}
+                      </text>
+                    </g>
+                  );
+                })}
               </svg>
             </div>
           </div>
