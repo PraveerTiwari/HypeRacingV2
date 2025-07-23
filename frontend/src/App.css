@@ -1059,12 +1059,10 @@ body {
   overflow: hidden;
 }
 
-.comparison-bar-container {
-  flex: 1;
-  height: 8px;
-  background: var(--bg-secondary);
+.bar-fill {
+  height: 100%;
   border-radius: 4px;
-  overflow: hidden;
+  transition: width 0.5s ease;
 }
 
 .driver-points-small {
