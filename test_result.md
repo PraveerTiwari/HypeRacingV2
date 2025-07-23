@@ -229,7 +229,7 @@ test_plan:
   test_priority: "high_first"
 
 agent_communication:
-  - task: "Update Red Bull Racing Color to Navy Blue"
+  - task: "Restructure Team Driver Comparison Layout"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
@@ -239,7 +239,19 @@ agent_communication:
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Changed Red Bull Racing team color from #0600EF (bright blue) to #1E3A8A (navy blue) in TEAM_COLORS mapping. Now applies to all Red Bull driver/team pages with proper navy blue accents."
+        comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
+
+  - task: "Remove Second Colored Bar from Position Rows"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Removed team-indicator div from position rows. Updated grid layout from 7 columns to 6 columns. Only left border team color remains."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
