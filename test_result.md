@@ -241,17 +241,17 @@ agent_communication:
         agent: "main"
         comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
 
-  - task: "Remove Second Colored Bar from Position Rows"
+  - task: "Fix Driver Comparison Bar Colors and Percentages"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
     stuck_count: 0
-    priority: "medium"
+    priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Removed team-indicator div from position rows. Updated grid layout from 7 columns to 6 columns. Only left border team color remains."
+        comment: "✅ COMPLETED - Changed bar fill width from relative driver points to actual percentage contribution (driverPercentage). Bars now fill with team color reflecting exact percentage of team points contributed by each driver."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
