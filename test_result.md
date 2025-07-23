@@ -229,8 +229,8 @@ test_plan:
   test_priority: "high_first"
 
 agent_communication:
-  - agent: "testing"
-    message: "Comprehensive backend testing completed. Fixed critical F1 API integration issue by updating from deprecated Ergast API to Jolpica API. All 8 backend tests now passing. OpenAI quota limits noted but system handles gracefully with fallback responses."
+  - agent: "main"
+    message: "✅ DASHBOARD IMPROVEMENTS COMPLETED - (1) Fixed Red Bull lineup: TSU (Yuki Tsunoda) replaces Perez. (2) Fixed data spillover in radio/updates panels with proper word-wrapping. (3) Enhanced responsive design across all pages. (4) Added colored contribution lines in team driver comparison showing percentage contribution to team points with dynamic visual indicators."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
