@@ -229,8 +229,17 @@ test_plan:
   test_priority: "high_first"
 
 agent_communication:
-  - agent: "main"
-    message: "✅ DASHBOARD IMPROVEMENTS COMPLETED - (1) Fixed Red Bull lineup: TSU (Yuki Tsunoda) replaces Perez. (2) Fixed data spillover in radio/updates panels with proper word-wrapping. (3) Enhanced responsive design across all pages. (4) Added colored contribution lines in team driver comparison showing percentage contribution to team points with dynamic visual indicators."
+  - task: "Update Red Bull Racing Color to Navy Blue"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Changed Red Bull Racing team color from #0600EF (bright blue) to #1E3A8A (navy blue) in TEAM_COLORS mapping. Now applies to all Red Bull driver/team pages with proper navy blue accents."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
