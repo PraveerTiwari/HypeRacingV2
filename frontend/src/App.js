@@ -671,21 +671,38 @@ const TeamPage = () => {
             <div className="driver-comparison">
               <h3 className="chart-title">DRIVER COMPARISON</h3>
               <div className="comparison-bars">
-                {teamDrivers.map((driver, index) => (
-                  <div key={driver.driver_id} className="driver-comparison-bar">
-                    <div className="driver-name-small">{driver.name.split(' ')[1] || driver.name}</div>
-                    <div className="comparison-bar-container">
-                      <div 
-                        className="bar-fill" 
-                        style={{
-                          width: `${(driver.points / Math.max(...teamDrivers.map(d => d.points))) * 100}%`,
-                          backgroundColor: teamColor
-                        }}
-                      ></div>
+                {teamDrivers.map((driver, index) => {
+                  const teamTotalPoints = teamDrivers.reduce((sum, d) => sum + d.points, 0);
+                  const driverPercentage = teamTotalPoints > 0 ? (driver.points / teamTotalPoints) * 100 : 0;
+                  
+                  return (
+                    <div key={driver.driver_id} className="driver-comparison-bar">
+                      <div className="driver-name-comparison">
+                        <div 
+                          className="driver-contribution-line"
+                          style={{
+                            backgroundColor: teamColor,
+                            opacity: Math.max(0.3, driverPercentage / 100),
+                            width: `${Math.max(2, driverPercentage / 10)}px`
+                          }}
+                        ></div>
+                        <div className="driver-name-small">{driver.name.split(' ')[1] || driver.name}</div>
+                        <div className="driver-percentage">({driverPercentage.toFixed(1)}%)</div>
+                      </div>
+                      <div className="comparison-bar-container">
+                        <div 
+                          className="bar-fill" 
+                          style={{
+                            width: `${(driver.points / Math.max(...teamDrivers.map(d => d.points))) * 100}%`,
+                            backgroundColor: teamColor,
+                            opacity: Math.max(0.4, driverPercentage / 100)
+                          }}
+                        ></div>
+                      </div>
+                      <div className="driver-points-small">{driver.points} pts</div>
                     </div>
-                    <div className="driver-points-small">{driver.points}</div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </NeonPanel>
