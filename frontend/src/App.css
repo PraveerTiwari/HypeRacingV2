@@ -1662,6 +1662,9 @@ body {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  overflow: hidden;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .update-time {
@@ -1677,6 +1680,10 @@ body {
   font-size: 0.9rem;
   flex: 1;
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 .live-dashboard-page {
   position: relative;
