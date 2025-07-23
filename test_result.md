@@ -266,8 +266,53 @@ agent_communication:
       - working: true
         agent: "main"
         comment: "✅ COMPLETED - Made entire driver info row clickable on team pages with cursor pointer and hover effects. Removed click handler from just driver name and applied to full row."
-  - agent: "main"
-    message: "✅ ADDITIONAL UPDATES COMPLETED - (1) Fixed Kick Sauber drivers: HUL (Nico Hulkenberg) and BOR (Gabriel Bortoleto). (2) Made entire dashboard position rows clickable, not just driver names. (3) Made entire team page driver rows clickable. (4) Added proper hover effects and cursor styling for better UX."
+  - task: "Fix Red Bull Driver Lineup - Replace Perez with Tsunoda"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Replaced PER (Sergio Perez) with TSU (Yuki Tsunoda) in Red Bull Racing P8 position. Updated telemetry data array and radio messages."
+
+  - task: "Fix Data Spillover in Radio and Race Control Panels"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.css"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Added proper word-wrap, overflow handling, and text-overflow properties to radio and update message containers. No more content spillover."
+
+  - task: "Improve Responsive Layout for All Pages"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.css"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Enhanced responsive breakpoints for dashboard positions, drivers page, and teams page. Added better text truncation and mobile-optimized layouts."
+
+  - task: "Enhanced Team Driver Comparison with Colored Lines"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "✅ COMPLETED - Added colored contribution lines next to driver names based on percentage of team points contributed. Shows both percentage and absolute points with dynamic opacity and line width."
   - task: "Update Dashboard with 2025 F1 Driver Lineup"
     implemented: true
     working: true
