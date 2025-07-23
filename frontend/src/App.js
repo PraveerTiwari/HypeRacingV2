@@ -677,18 +677,8 @@ const TeamPage = () => {
                   
                   return (
                     <div key={driver.driver_id} className="driver-comparison-bar">
-                      <div className="driver-name-comparison">
-                        <div 
-                          className="driver-contribution-line"
-                          style={{
-                            backgroundColor: teamColor,
-                            opacity: Math.max(0.3, driverPercentage / 100),
-                            width: `${Math.max(2, driverPercentage / 10)}px`
-                          }}
-                        ></div>
-                        <div className="driver-name-small">{driver.name.split(' ')[1] || driver.name}</div>
-                        <div className="driver-percentage">({driverPercentage.toFixed(1)}%)</div>
-                      </div>
+                      <div className="driver-name-small">{driver.name.split(' ')[1] || driver.name}</div>
+                      <div className="driver-percentage">({driverPercentage.toFixed(1)}%)</div>
                       <div className="comparison-bar-container">
                         <div 
                           className="bar-fill" 
