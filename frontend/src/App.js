@@ -683,9 +683,9 @@ const TeamPage = () => {
                         <div 
                           className="bar-fill" 
                           style={{
-                            width: `${(driver.points / Math.max(...teamDrivers.map(d => d.points))) * 100}%`,
+                            width: `${driverPercentage}%`,
                             backgroundColor: teamColor,
-                            opacity: Math.max(0.4, driverPercentage / 100)
+                            opacity: Math.max(0.6, driverPercentage / 100)
                           }}
                         ></div>
                       </div>
