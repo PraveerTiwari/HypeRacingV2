@@ -2346,9 +2346,16 @@ body {
     grid-row: auto;
   }
   
-  .position-row {
-    grid-template-columns: 40px 60px 1fr 80px;
+  .position-row-new {
+    grid-template-columns: 35px 50px 1fr 70px;
     font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+  
+  .position-row-new .team-name-short {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .last-lap,
