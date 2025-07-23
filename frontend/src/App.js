@@ -8,7 +8,7 @@ const API = `${BACKEND_URL}/api`;
 
 // Team color mapping for neon borders
 const TEAM_COLORS = {
-  'Red Bull Racing': '#0600EF',
+  'Red Bull Racing': '#1E3A8A',
   'Mercedes': '#00D2BE', 
   'Ferrari': '#DC143C',
   'McLaren': '#FF8700',
