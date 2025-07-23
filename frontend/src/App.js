@@ -860,7 +860,7 @@ const LiveDashboardPage = () => {
       { driver: 'LEC', message: 'Push now, we can catch them.', timestamp: Date.now() },
       { driver: 'RUS', message: 'These mediums are dropping off.', timestamp: Date.now() },
       { driver: 'ANT', message: 'Learning the car, feeling good.', timestamp: Date.now() },
-      { driver: 'PER', message: 'Copy that, understood.', timestamp: Date.now() },
+      { driver: 'TSU', message: 'Red Bull car feels great today.', timestamp: Date.now() },
       { driver: 'ALO', message: 'Strategy looking good from here.', timestamp: Date.now() },
       { driver: 'GAS', message: 'Alpine pace is strong today.', timestamp: Date.now() },
       { driver: 'SAI', message: 'Williams setup working well.', timestamp: Date.now() },
