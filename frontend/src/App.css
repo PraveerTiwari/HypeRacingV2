@@ -2365,7 +2365,7 @@ body {
   }
   
   .position-row-new {
-    grid-template-columns: 35px 50px 1fr 70px;
+    grid-template-columns: 35px 1fr 70px;
     font-size: 0.9rem;
     padding: 0.6rem;
   }
