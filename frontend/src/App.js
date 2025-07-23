@@ -811,7 +811,7 @@ const LiveDashboardPage = () => {
       { pos: 5, driver: 'LEC', driverId: 'charles_leclerc', team: 'Ferrari', gap: '+3.456', lastLap: '1:24.912', sector: 'S1' },
       { pos: 6, driver: 'RUS', driverId: 'george_russell', team: 'Mercedes', gap: '+4.123', lastLap: '1:25.579', sector: 'S3' },
       { pos: 7, driver: 'ANT', driverId: 'kimi_antonelli', team: 'Mercedes', gap: '+5.789', lastLap: '1:26.234', sector: 'S2' },
-      { pos: 8, driver: 'PER', driverId: 'sergio_perez', team: 'Red Bull Racing', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' },
+      { pos: 8, driver: 'TSU', driverId: 'yuki_tsunoda', team: 'Red Bull Racing', gap: '+6.234', lastLap: '1:26.690', sector: 'S1' },
       { pos: 9, driver: 'ALO', driverId: 'fernando_alonso', team: 'Aston Martin', gap: '+7.456', lastLap: '1:27.123', sector: 'S3' },
       { pos: 10, driver: 'STR', driverId: 'lance_stroll', team: 'Aston Martin', gap: '+8.789', lastLap: '1:27.890', sector: 'S2' },
       { pos: 11, driver: 'GAS', driverId: 'pierre_gasly', team: 'Alpine F1 Team', gap: '+9.123', lastLap: '1:28.456', sector: 'S1' },
