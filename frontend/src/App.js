@@ -87,12 +87,16 @@ const HomePage = () => {
           <p className="hero-subtitle">Real-time data • AI insights • Championship analysis</p>
           <div className="hero-stats">
             <div className="stat-item">
-              <div className="stat-number">21</div>
+              <div className="stat-number">20</div>
               <div className="stat-label">DRIVERS</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">10</div>
               <div className="stat-label">TEAMS</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">24</div>
+              <div className="stat-label">RACES</div>
             </div>
           </div>
         </div>
