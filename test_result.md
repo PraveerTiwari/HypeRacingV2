@@ -241,17 +241,17 @@ agent_communication:
         agent: "main"
         comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
 
-  - task: "Add Driver Codes to Track Map"
+  - task: "Update Home Page Statistics"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
     stuck_count: 0
-    priority: "medium"
+    priority: "low"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Replaced static track map circles with dynamic driver positions showing top 8 drivers. Each colored dot now displays the 3-letter driver code (VER, HAM, NOR, etc.) next to it in white text, using live race position data and team colors."
+        comment: "✅ COMPLETED - Updated hero section statistics from '21 DRIVERS • 10 TEAMS' to '20 DRIVERS • 10 TEAMS • 24 RACES' to reflect accurate F1 2025 season data."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
