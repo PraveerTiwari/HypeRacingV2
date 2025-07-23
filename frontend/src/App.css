@@ -2330,6 +2330,33 @@ body {
   .drivers-grid, .teams-grid {
     grid-template-columns: 1fr;
     padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .driver-card-content, .team-card-content {
+    overflow: hidden;
+  }
+  
+  .driver-name, .team-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .team-driver .driver-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+  
+  .driver-comparison-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .driver-name-comparison {
+    min-width: 90px;
+    max-width: 90px;
   }
   
   .dashboard-grid {
