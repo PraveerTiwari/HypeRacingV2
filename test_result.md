@@ -241,17 +241,17 @@ agent_communication:
         agent: "main"
         comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
 
-  - task: "Fix Dashboard Driver Navigation URLs"
+  - task: "Add Driver Codes to Track Map"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
     stuck_count: 0
-    priority: "high"
+    priority: "medium"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Updated all driverId values from full names (e.g., 'oscar_piastri') to last names only (e.g., 'piastri'). Dashboard clicks now navigate to correct URLs like /driver/piastri instead of /driver/oscar_piastri."
+        comment: "✅ COMPLETED - Replaced static track map circles with dynamic driver positions showing top 8 drivers. Each colored dot now displays the 3-letter driver code (VER, HAM, NOR, etc.) next to it in white text, using live race position data and team colors."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
