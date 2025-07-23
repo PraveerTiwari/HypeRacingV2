@@ -241,7 +241,7 @@ agent_communication:
         agent: "main"
         comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
 
-  - task: "Fix Driver Comparison Bar Colors and Percentages"
+  - task: "Fix Dashboard Driver Navigation URLs"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
@@ -251,7 +251,7 @@ agent_communication:
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Changed bar fill width from relative driver points to actual percentage contribution (driverPercentage). Bars now fill with team color reflecting exact percentage of team points contributed by each driver."
+        comment: "✅ COMPLETED - Updated all driverId values from full names (e.g., 'oscar_piastri') to last names only (e.g., 'piastri'). Dashboard clicks now navigate to correct URLs like /driver/piastri instead of /driver/oscar_piastri."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
