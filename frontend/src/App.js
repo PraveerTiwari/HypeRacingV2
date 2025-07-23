@@ -963,10 +963,6 @@ const LiveDashboardPage = () => {
                 onClick={() => navigate(`/driver/${driver.driverId}`)}
               >
                 <div className="position-number">P{driver.pos}</div>
-                <div 
-                  className="team-indicator"
-                  style={{ backgroundColor: driver.teamColor }}
-                ></div>
                 <div className="driver-code">
                   {driver.driver}
                 </div>
