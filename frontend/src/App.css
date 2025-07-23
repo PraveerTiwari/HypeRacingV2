@@ -1614,6 +1614,9 @@ body {
   border-radius: 6px;
   padding: 0.75rem;
   border-left: 3px solid var(--neon-orange);
+  overflow: hidden;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .radio-header-new {
@@ -1621,12 +1624,14 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  overflow: hidden;
 }
 
 .driver-code-radio {
   font-weight: 700;
   color: var(--neon-orange);
   font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .radio-text {
@@ -1634,6 +1639,10 @@ body {
   font-size: 0.8rem;
   font-style: italic;
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .updates-list-new {
