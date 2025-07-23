@@ -2151,7 +2151,7 @@ body {
 /* Medium screens - improved responsiveness */
 @media (max-width: 1200px) {
   .position-row-new {
-    grid-template-columns: 45px 6px 50px 1fr 70px 90px 40px;
+    grid-template-columns: 45px 50px 1fr 70px 90px 40px;
     padding: 0.6rem;
   }
 
