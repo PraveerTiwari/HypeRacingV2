@@ -241,17 +241,17 @@ agent_communication:
         agent: "main"
         comment: "✅ COMPLETED - Changed layout from [name+percentage | bar | points] to [name | percentage | bar | points]. Bar now positioned between percentage and points amount as requested."
 
-  - task: "Update Home Page Statistics"
+  - task: "Comprehensive Mobile Website Optimization"
     implemented: true
     working: true
-    file: "/app/frontend/src/App.js"
+    file: "/app/frontend/src/App.css"
     stuck_count: 0
-    priority: "low"
+    priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "✅ COMPLETED - Updated hero section statistics from '21 DRIVERS • 10 TEAMS' to '20 DRIVERS • 10 TEAMS • 24 RACES' to reflect accurate F1 2025 season data."
+        comment: "✅ COMPLETED - Added extensive mobile CSS optimizations including: Dashboard mobile layout (flex column stack), improved responsive breakpoints (768px, 480px), touch target sizing (44px minimum), scroll performance (-webkit-overflow-scrolling), input zoom prevention (16px font), tap highlights, and mobile-specific layout adjustments for all pages."
   - task: "Update Kick Sauber Drivers to HUL/BOR"
     implemented: true
     working: true
