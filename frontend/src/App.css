@@ -2434,19 +2434,35 @@ body {
     padding: 0.75rem;
     margin: 0;
   }
+  /* Home Page Mobile */
   .hero-title {
     font-size: 2.5rem;
   }
   
   .hero-stats {
-    flex-direction: column;
-    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
   }
   
   .home-grid {
     grid-template-columns: 1fr;
     padding: 1rem;
-    max-width: 100%;
+    gap: 1.5rem;
   }
   
   .dashboard-link, .news-section, .drivers-preview {
@@ -2459,183 +2475,145 @@ body {
     text-align: center;
   }
   
-  .dashboard-main {
-    text-align: center;
-  }
-  
-  .race-countdown {
-    border-left: none;
-    border-top: 2px solid var(--neon-red);
-    padding-left: 0;
-    padding-top: 1rem;
-  }
-  
-  .countdown-timer {
-    gap: 0.5rem;
-  }
-  
-  .countdown-number {
-    font-size: 1.5rem;
-  }
-  
-  .race-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .analytics-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .driver-layout, .team-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .race-analytics-panel,
-  .analytics-panel,
-  .mini-pitwall {
-    margin-bottom: 1.5rem;
-  }
-  
-  .driver-info-column .neon-panel,
-  .team-info-column .neon-panel {
-    padding: 1.5rem;
-  }
-  
-  .chat-container {
-    height: 300px;
-  }
-  
-  .drivers-grid, .teams-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-  
-  .driver-card-content, .team-card-content {
-    overflow: hidden;
-  }
-  
-  .driver-name, .team-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .team-driver .driver-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 150px;
-  }
-  
-  .driver-comparison-bar {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .driver-name-comparison {
-    min-width: 90px;
-    max-width: 90px;
-  }
-  
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .positions-panel,
-  .trackmap-panel,
-  .radio-panel,
-  .updates-panel,
-  .telemetry-panel,
-  .weather-panel {
-    grid-column: 1;
-    grid-row: auto;
-  }
-  
-  .position-row-new {
-    grid-template-columns: 35px 1fr 70px;
-    font-size: 0.9rem;
-    padding: 0.6rem;
-  }
-  
-  .position-row-new .team-name-short {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .last-lap,
-  .sector-indicator {
-    display: none;
-  }
-  
-  .dashboard-header {
+  /* Navigation Mobile */
+  .nav-container {
+    padding: 1rem 0.5rem;
     flex-direction: column;
     gap: 1rem;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .session-details {
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .nav-container {
-    padding: 1rem;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: space-between;
   }
   
   .nav-links {
-    gap: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
     flex-wrap: wrap;
     justify-content: center;
   }
   
   .nav-link {
     padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    min-width: 70px;
+    text-align: center;
   }
   
   .main-content {
-    padding-top: 100px;
+    padding-top: 120px;
   }
   
-  .live-dashboard-page,
-  .driver-page,
-  .team-page,
-  .drivers-page,
-  .teams-page,
-  .pitwall-page {
+  /* Driver & Team Pages Mobile */
+  .driver-layout, .team-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .driver-info-column, .team-info-column {
+    order: 1;
+  }
+  
+  .analytics-column {
+    order: 2;
+  }
+  
+  .pitwall-column {
+    order: 3;
+  }
+  
+  .race-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .race-analytics-panel,
+  .analytics-panel,
+  .mini-pitwall {
+    margin-bottom: 1rem;
     padding: 1rem;
   }
   
-  .driver-card-content {
-    flex-direction: column;
-    text-align: center;
+  .driver-info-column .neon-panel,
+  .team-info-column .neon-panel {
+    padding: 1rem;
+  }
+  
+  .chat-container {
+    height: 250px;
+  }
+  
+  .chat-messages {
+    max-height: 180px;
+  }
+  
+  .chat-input-container {
+    padding: 0.75rem;
+  }
+  
+  .chat-input {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  .send-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Drivers & Teams Grid Pages */
+  .drivers-grid, .teams-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
     gap: 1rem;
   }
   
-  .driver-position-badge {
-    font-size: 2rem;
-    min-width: 60px;
+  .driver-card, .team-card {
+    margin-bottom: 0.5rem;
   }
   
-  .team-card-content {
-    padding: 1.5rem;
+  .driver-card-content, .team-card-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .driver-name, .team-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
   
   .team-drivers {
-    gap: 0.5rem;
+    gap: 0.25rem;
+    margin: 0.75rem 0;
   }
   
   .team-driver {
-    padding: 0.75rem;
-    font-size: 0.9rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .driver-comparison-bar {
+    grid-template-columns: 60px 40px 1fr 60px;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .driver-name-small {
+    font-size: 0.75rem;
+  }
+  
+  .driver-percentage {
+    font-size: 0.65rem;
+  }
+  
+  .comparison-bar-container {
+    height: 6px;
+  }
+  
+  .driver-points-small {
+    font-size: 0.75rem;
   }
 }
 
