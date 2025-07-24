@@ -2617,66 +2617,302 @@ body {
   }
 }
 
-/* iPhone Portrait Optimization */
+/* iPhone Portrait and Very Small Screens */
 @media (max-width: 480px) {
+  /* Home Page */
   .hero-title {
     font-size: 2rem;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .hero-stats {
-    gap: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    min-width: 70px;
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
-  .dashboard-content {
-    gap: 1rem;
+  .stat-label {
+    font-size: 0.6rem;
   }
   
-  .countdown-timer {
-    flex-direction: row;
-    gap: 0.5rem;
+  /* Dashboard Ultra Compact */
+  .dashboard-main-grid {
+    gap: 0.75rem;
+    padding: 0.25rem;
   }
   
-  .countdown-number {
+  .weather-race-header {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .race-name {
     font-size: 1.2rem;
   }
   
-  .countdown-label {
+  .session-time {
+    font-size: 0.8rem;
+  }
+  
+  .weather-header {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .weather-item-header {
+    padding: 0.25rem;
+  }
+  
+  .weather-label {
     font-size: 0.6rem;
+  }
+  
+  .weather-value {
+    font-size: 0.75rem;
+  }
+  
+  .connection-status {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding-top: 0.5rem;
+  }
+  
+  /* Position Panel Ultra Compact */
+  .position-row-new {
+    grid-template-columns: 35px 45px 1fr 50px;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .position-number {
+    font-size: 0.7rem;
+  }
+  
+  .driver-code {
+    font-size: 0.8rem;
+  }
+  
+  .team-name-short {
+    font-size: 0.65rem;
+    max-width: 80px;
+  }
+  
+  .gap-time {
+    font-size: 0.6rem;
+  }
+  
+  /* Track Map Compact */
+  .track-svg {
+    height: 150px;
+  }
+  
+  .track-svg text {
+    font-size: 8px;
+  }
+  
+  /* Telemetry Ultra Compact */
+  .telemetry-grid-new {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-height: 150px;
+  }
+  
+  .telemetry-item {
+    padding: 0.5rem;
+  }
+  
+  .driver-code-telemetry {
+    font-size: 0.7rem;
+  }
+  
+  .telemetry-data {
+    gap: 0.25rem;
+  }
+  
+  .data-label {
+    font-size: 0.55rem;
+  }
+  
+  .data-value {
+    font-size: 0.7rem;
+  }
+  
+  /* Radio Ultra Compact */
+  .radio-messages-new {
+    max-height: 150px;
+  }
+  
+  .radio-message-new {
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .driver-code-radio {
+    font-size: 0.7rem;
+  }
+  
+  .radio-time {
+    font-size: 0.55rem;
+  }
+  
+  .radio-text {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+  
+  /* Updates Ultra Compact */
+  .updates-list-new {
+    max-height: 150px;
+  }
+  
+  .update-item-new {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .update-time {
+    font-size: 0.55rem;
+    min-width: 45px;
+  }
+  
+  .update-message {
+    font-size: 0.7rem;
+  }
+  
+  /* Panel Titles Ultra Compact */
+  .panel-title {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  /* Navigation Ultra Compact */
+  .nav-container {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .nav-links {
+    gap: 0.15rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    min-width: 60px;
+  }
+  
+  .main-content {
+    padding-top: 110px;
+  }
+  
+  /* Driver/Team Pages Ultra Compact */
+  .driver-layout, .team-layout {
+    gap: 0.75rem;
+    padding: 0 0.25rem;
   }
   
   .race-stats-grid {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
   
   .analytics-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .driver-layout, .team-layout {
-    gap: 1rem;
-    padding: 0 0.5rem;
+    gap: 0.5rem;
   }
   
   .race-analytics-panel,
   .analytics-panel,
   .mini-pitwall {
-    margin-bottom: 1rem;
-    padding: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
   }
   
   .driver-info-column .neon-panel,
   .team-info-column .neon-panel {
-    padding: 1rem;
+    padding: 0.75rem;
   }
+  
+  .chat-container {
+    height: 200px;
+  }
+  
+  .chat-messages {
+    max-height: 130px;
+  }
+  
+  .chat-input {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  .send-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Driver/Team Cards Ultra Compact */
+  .driver-card-content, .team-card-content {
+    padding: 0.75rem;
+  }
+  
+  .driver-name, .team-name {
+    font-size: 1rem;
+  }
+  
+  .team-drivers {
+    gap: 0.15rem;
+    margin: 0.5rem 0;
+  }
+  
+  .team-driver {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+  
+  .driver-comparison-bar {
+    grid-template-columns: 50px 35px 1fr 50px;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+  }
+  
+  .driver-name-small {
+    font-size: 0.65rem;
+  }
+  
+  .driver-percentage {
+    font-size: 0.6rem;
+  }
+  
+  .comparison-bar-container {
+    height: 5px;
+  }
+  
+  .driver-points-small {
+    font-size: 0.65rem;
+  }
+  
+  /* General Ultra Compact */
+  .neon-panel {
+    padding: 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 0.9rem;
+  }
+  
+  .chart-title {
+    font-size: 0.8rem;
+  }
+}
   
   .chat-container {
     height: 250px;
