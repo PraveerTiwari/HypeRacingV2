@@ -2991,7 +2991,6 @@ body {
   .pitwall-page {
     padding: 0.5rem;
   }
-}
 
 /* Large iPhone and iPhone Pro Max */
 @media (max-width: 428px) and (min-width: 390px) {
