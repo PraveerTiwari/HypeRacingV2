@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/drivers/page": "/drivers",
+  "/drivers/[driverId]/page": "/drivers/[driverId]",
+  "/live/page": "/live",
+  "/page": "/",
+  "/pitwall/page": "/pitwall",
+  "/teams/[teamName]/page": "/teams/[teamName]",
+  "/teams/page": "/teams"
+}

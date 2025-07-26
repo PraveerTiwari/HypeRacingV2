@@ -16,14 +16,6 @@
       "static/chunks/874-437a265a67d6cfee.js",
       "static/chunks/app/layout-01000a9e41173f82.js"
     ],
-    "/drivers/[driverId]/page": [
-      "static/chunks/webpack-30abe0123bdff77d.js",
-      "static/chunks/4bd1b696-c49c6f05a40ba469.js",
-      "static/chunks/964-824c0b7311f80c78.js",
-      "static/chunks/main-app-272bad4f8fee1944.js",
-      "static/chunks/464-7a6efc7b85584a94.js",
-      "static/chunks/app/drivers/[driverId]/page-3971f8a2fd8f50a5.js"
-    ],
     "/drivers/page": [
       "static/chunks/webpack-30abe0123bdff77d.js",
       "static/chunks/4bd1b696-c49c6f05a40ba469.js",
@@ -31,6 +23,14 @@
       "static/chunks/main-app-272bad4f8fee1944.js",
       "static/chunks/874-437a265a67d6cfee.js",
       "static/chunks/app/drivers/page-ae5a78f2ee889a66.js"
+    ],
+    "/drivers/[driverId]/page": [
+      "static/chunks/webpack-30abe0123bdff77d.js",
+      "static/chunks/4bd1b696-c49c6f05a40ba469.js",
+      "static/chunks/964-824c0b7311f80c78.js",
+      "static/chunks/main-app-272bad4f8fee1944.js",
+      "static/chunks/464-7a6efc7b85584a94.js",
+      "static/chunks/app/drivers/[driverId]/page-2ba523b4cec1697d.js"
     ],
     "/live/page": [
       "static/chunks/webpack-30abe0123bdff77d.js",
@@ -62,7 +62,7 @@
       "static/chunks/964-824c0b7311f80c78.js",
       "static/chunks/main-app-272bad4f8fee1944.js",
       "static/chunks/464-7a6efc7b85584a94.js",
-      "static/chunks/app/teams/[teamName]/page-22f68b60e3273388.js"
+      "static/chunks/app/teams/[teamName]/page-3fc463308d36732e.js"
     ],
     "/teams/page": [
       "static/chunks/webpack-30abe0123bdff77d.js",
