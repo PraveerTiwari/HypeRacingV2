@@ -9,7 +9,7 @@ import { Driver, ChatMessage } from '@/types';
 
 export default function DriverPage() {
   const params = useParams();
-  const driverId = params.driverId as string;
+  const driverId = params?.driverId as string;
   
   const [driver, setDriver] = useState<Driver | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
