@@ -1,0 +1,3195 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/globals.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/* HypeRacing - Black & White Neon Design System */
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-muted: #888888;
+  --neon-blue: #00D2BE;
+  --neon-red: #DC143C;
+  --neon-orange: #FF8700;
+  --border-color: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Grid Background Effect */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -2;
+  animation: grid-shift 20s linear infinite;
+}
+
+@keyframes grid-shift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* Navigation */
+.navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-subtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 210, 190, 0.3);
+}
+
+/* Main Content */
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* Neon Panel Component */
+.neon-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.neon-panel::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-color), transparent, var(--neon-color));
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-panel:hover::before {
+  opacity: 0.6;
+}
+
+/* Home Page */
+.home-page {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--neon-blue);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.home-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+  justify-items: center;
+}
+
+.dashboard-link, .news-section, .drivers-preview {
+  width: 100%;
+  max-width: 900px;
+}
+
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.news-section {
+  grid-row: auto;
+}
+
+.drivers-preview {
+  grid-column: 1;
+  margin-top: 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-item {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.news-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.news-summary {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.dashboard-panel {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, #111111 0%, #1f1f1f 100%);
+  border: 1px solid #333333;
+  position: relative;
+  padding: 2rem;
+}
+
+.dashboard-panel::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #DC143C, transparent, #DC143C);
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.dashboard-panel:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dashboard-main {
+  text-align: left;
+}
+
+.race-countdown {
+  text-align: center;
+  border-left: 2px solid var(--neon-red);
+  padding-left: 2rem;
+}
+
+.countdown-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.race-info {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--neon-red);
+  line-height: 1;
+  font-family: 'Courier New', monospace;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+.panel-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.panel-description {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--neon-red);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-red);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.drivers-preview {
+  grid-column: 1;
+  margin-top: 0;
+}
+
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.driver-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border-left: 3px solid var(--neon-orange);
+}
+
+.driver-preview-card:hover {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 210, 190, 0.2);
+  transform: translateY(-2px);
+}
+
+.driver-position {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+  min-width: 40px;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(255, 135, 0, 0.1);
+  border-radius: 8px;
+}
+
+.driver-info {
+  flex: 1 1;
+}
+
+.driver-name {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.driver-team, .driver-points {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.driver-points {
+  color: var(--neon-blue);
+  font-weight: 600;
+}
+
+/* Drivers Page */
+.drivers-page, .teams-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.drivers-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.driver-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.driver-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--neon-color);
+  opacity: 0.8;
+}
+
+.driver-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 135, 0, 0.15);
+}
+
+.driver-card-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.driver-position-badge {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+  min-width: 80px;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 135, 0, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 135, 0, 0.3);
+}
+
+.driver-details {
+  flex: 1 1;
+}
+
+.driver-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-team {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.driver-nationality {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-stats {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 210, 190, 0.05);
+  border-radius: 12px;
+  border: 2px solid rgba(0, 210, 190, 0.2);
+}
+
+.points-display {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--neon-blue);
+  line-height: 1;
+  display: block;
+}
+
+.points-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Individual Driver Page */
+.driver-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.driver-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr 400px;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.driver-info-column .neon-panel {
+  text-align: center;
+}
+
+.driver-image-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  border: 2px solid var(--neon-color);
+}
+
+.driver-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.driver-name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.driver-team-info {
+  margin-bottom: 2rem;
+}
+
+.team-name {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.nationality {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.championship-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.position-display, .points-display {
+  text-align: center;
+}
+
+.position-number, .points-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--neon-blue);
+  line-height: 1;
+}
+
+.position-label, .points-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+/* Analytics Column */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-title {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+}
+
+.performance-chart {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.chart-title {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.performance-bars {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  height: 150px;
+}
+
+.performance-bar {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.bar-fill {
+  width: 100%;
+  background: var(--neon-blue);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+}
+
+.bar-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Mini Pit Wall */
+.mini-pitwall {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.chat-messages {
+  flex: 1 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.chat-prompt {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.message {
+  margin-bottom: 1rem;
+  max-width: 80%;
+}
+
+.message.user {
+  margin-left: auto;
+}
+
+.message.ai {
+  margin-right: auto;
+}
+
+.message-content {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.message.user .message-content {
+  background: var(--neon-blue);
+  color: var(--bg-primary);
+}
+
+.message.ai .message-content {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message-input {
+  flex: 1 1;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.message-input::placeholder {
+  color: var(--text-muted);
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 210, 190, 0.3);
+}
+
+.send-button {
+  background: transparent;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.send-button:hover:not(:disabled) {
+  background: var(--neon-blue);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px rgba(0, 210, 190, 0.3);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Clickable Driver Names */
+.clickable-driver {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: underline;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+
+.clickable-driver:hover {
+  color: var(--neon-blue) !important;
+  -webkit-text-decoration-color: var(--neon-blue);
+          text-decoration-color: var(--neon-blue);
+}
+.race-analytics-panel {
+  margin-bottom: 2rem;
+}
+
+.race-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.race-stat-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  border-left: 3px solid var(--neon-color);
+}
+
+.race-stat-card .stat-title {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.race-stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--neon-color);
+  font-family: 'Courier New', monospace;
+}
+
+.track-insight {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--neon-color);
+}
+
+.insight-title {
+  font-size: 1rem;
+  color: var(--neon-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.insight-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+.team-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.team-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr 400px;
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.team-info-column .neon-panel {
+  text-align: center;
+}
+
+.team-logo-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  border: 2px solid var(--neon-color);
+}
+
+.team-emblem {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.team-name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.team-drivers-info {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.driver-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.driver-info-row:hover {
+  background: var(--bg-secondary);
+  transform: translateX(3px);
+  box-shadow: 0 3px 10px rgba(0, 210, 190, 0.15);
+}
+
+.driver-info-row .driver-name {
+  flex: 1 1;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.driver-info-row .driver-position {
+  color: var(--neon-orange);
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.driver-info-row .driver-points {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.team-championship-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.driver-comparison {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.comparison-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.driver-comparison-bar {
+  display: grid;
+  grid-template-columns: 80px 60px 1fr 80px;
+  align-items: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.driver-name-small {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.driver-percentage {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+.comparison-bar-container {
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.driver-points-small {
+  min-width: 40px;
+  font-size: 0.9rem;
+  color: var(--neon-blue);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Updated Teams Grid for F1 Interface Style */
+.teams-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.team-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--neon-color);
+  opacity: 0.8;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 210, 190, 0.15);
+}
+
+.team-card-content {
+  padding: 2rem;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.team-drivers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.team-driver {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border-left: 3px solid var(--neon-color);
+}
+
+.team-driver .driver-name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.team-driver .driver-position {
+  color: var(--neon-orange);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.team-points {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.team-points .points-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--neon-blue);
+  line-height: 1;
+  display: block;
+}
+
+.team-points .points-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Updated Drivers Grid for F1 Interface Style */
+.drivers-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.driver-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.driver-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--neon-color);
+  opacity: 0.8;
+}
+
+.driver-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 135, 0, 0.15);
+}
+
+.driver-card-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.driver-position-badge {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+  min-width: 80px;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 135, 0, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 135, 0, 0.3);
+}
+
+.driver-details {
+  flex: 1 1;
+}
+
+.driver-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-team {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.driver-nationality {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.driver-stats {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 210, 190, 0.05);
+  border-radius: 12px;
+  border: 2px solid rgba(0, 210, 190, 0.2);
+}
+
+.points-display {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--neon-blue);
+  line-height: 1;
+  display: block;
+}
+
+.points-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Main Pit Wall Page */
+.pitwall-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.main-pitwall {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pitwall-chat {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.chat-messages-main {
+  flex: 1 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.chat-welcome {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.chat-welcome h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.chat-welcome p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.message-main {
+  margin-bottom: 2rem;
+  max-width: 80%;
+}
+
+.message-main.user {
+  margin-left: auto;
+}
+
+.message-main.ai {
+  margin-right: auto;
+}
+
+.message-content-main {
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.message-main.user .message-content-main {
+  background: var(--neon-blue);
+  color: var(--bg-primary);
+}
+
+.message-main.ai .message-content-main {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.chat-input-main {
+  display: flex;
+  gap: 1rem;
+}
+
+.message-input-main {
+  flex: 1 1;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.message-input-main::placeholder {
+  color: var(--text-muted);
+}
+
+.message-input-main:focus {
+  outline: none;
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 210, 190, 0.3);
+}
+
+.send-button-main {
+  background: var(--neon-blue);
+  border: none;
+  color: var(--bg-primary);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.send-button-main:hover:not(:disabled) {
+  background: var(--neon-red);
+  box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+}
+
+.send-button-main:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading Screen */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.loading-content {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+
+/* New Dashboard Design */
+.weather-race-header {
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.race-title-section .race-name {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.race-title-section .session-info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.weather-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.weather-item-header {
+  text-align: center;
+}
+
+.weather-item-header .weather-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.weather-item-header .weather-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  font-family: 'Courier New', monospace;
+}
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.positions-panel-new {
+  grid-column: 1;
+  grid-row: 1;
+  height: 800px;
+  overflow: hidden;
+}
+
+.positions-list-new {
+  height: 720px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.position-row-new {
+  display: grid;
+  grid-template-columns: 50px 60px 1fr 80px 100px 50px;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--team-color);
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.position-row-new > * {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.position-row-new:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 210, 190, 0.2);
+  background: var(--bg-secondary);
+}
+
+.clickable-driver-name {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+
+.clickable-driver-name:hover {
+  color: var(--neon-blue) !important;
+  -webkit-text-decoration-color: var(--neon-blue);
+          text-decoration-color: var(--neon-blue);
+  transform: scale(1.1);
+}
+
+.trackmap-panel-new {
+  grid-column: 2;
+  grid-row: 1;
+  height: 400px;
+}
+
+.track-container-new {
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.telemetry-radio-container {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 420px;
+  height: 380px;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.telemetry-panel-new {
+  flex: 1 1;
+  height: 100%;
+}
+
+.radio-panel-new {
+  flex: 1 1;
+  height: 100%;
+}
+
+.updates-panel-new {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  height: 300px;
+  margin-top: 1rem;
+}
+
+.telemetry-panel-new {
+  flex: 1 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.telemetry-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  gap: 0.5rem;
+  height: 310px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.telemetry-card-new {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid #10b981;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 80px;
+}
+
+.telemetry-driver-new {
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.telemetry-data-new {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-row .data-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  min-width: 25px;
+}
+
+.data-row .data-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+}
+
+.radio-messages-new {
+  height: 310px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.radio-message-new {
+  background: var(--bg-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid var(--neon-orange);
+  overflow: hidden;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.radio-header-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.driver-code-radio {
+  font-weight: 700;
+  color: var(--neon-orange);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.radio-text {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  max-width: 100%;
+}
+
+.updates-list-new {
+  height: 230px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.update-item-new {
+  background: var(--bg-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  border-left: 3px solid #7c3aed;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  overflow: hidden;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.update-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.update-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  flex: 1 1;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  max-width: 100%;
+}
+.live-dashboard-page {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.session-info .session-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.session-details {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.session-time {
+  font-size: 1.2rem;
+  color: var(--neon-blue);
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.track-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.track-status.green {
+  color: #10b981;
+}
+
+.track-status.yellow {
+  color: #f59e0b;
+}
+
+.track-status.red {
+  color: #ef4444;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.connection-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.connection-dot.connected {
+  background: #10b981;
+}
+
+.connection-dot.disconnected {
+  background: #ef4444;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-gap: 2rem;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.positions-panel {
+  grid-column: 1;
+  grid-row: 1 / 5;
+}
+
+.trackmap-panel {
+  grid-column: 2;
+  grid-row: 1;
+  height: 350px;
+}
+
+.telemetry-panel {
+  grid-column: 2;
+  grid-row: 2;
+  height: 250px;
+}
+
+.updates-weather-container {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  gap: 1rem;
+  height: 220px;
+}
+
+.updates-panel {
+  flex: 1 1;
+  height: 100%;
+}
+
+.weather-panel {
+  flex: 1 1;
+  height: 100%;
+}
+
+.radio-panel {
+  grid-column: 1 / 3;
+  grid-row: 5;
+  margin-top: 1rem;
+  height: 300px;
+}
+
+/* Position Panel */
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.position-row {
+  display: grid;
+  grid-template-columns: 50px 12px 60px 1fr 100px 120px 60px;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--team-color);
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.position-row:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 210, 190, 0.2);
+}
+
+.team-indicator {
+  width: 8px;
+  height: 30px;
+  border-radius: 4px;
+  background: var(--team-color);
+}
+
+.team-name-short {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.position-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--neon-orange);
+  text-align: center;
+}
+
+.driver-code {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.team-name {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.gap-time {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--neon-blue);
+  text-align: right;
+}
+
+.last-lap {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.sector-indicator {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.sector-indicator.s1 {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.sector-indicator.s2 {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.sector-indicator.s3 {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* Track Map */
+.track-container {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.track-outline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 280px;
+}
+
+.track-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.track-sectors {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sector {
+  background: rgba(220, 20, 60, 0.2);
+  color: var(--neon-red);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid var(--neon-red);
+}
+
+/* Radio Panel */
+.radio-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.radio-message {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 3px solid var(--neon-orange);
+}
+
+.radio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.radio-header .driver-code {
+  font-weight: 700;
+  color: var(--neon-orange);
+}
+
+.radio-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.radio-text {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.no-radio {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Updates Panel */
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.update-item {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border-left: 3px solid #7c3aed;
+}
+
+.update-time {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.update-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.no-updates {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+}
+
+/* Telemetry Panel */
+.telemetry-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.telemetry-card {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 3px solid #10b981;
+}
+
+.telemetry-driver {
+  font-weight: 700;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.telemetry-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  gap: 0.5rem;
+}
+
+.data-item {
+  text-align: center;
+}
+
+.data-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.data-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+}
+
+/* Weather Panel */
+.weather-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.75rem;
+  gap: 0.75rem;
+}
+
+.weather-item {
+  background: var(--bg-primary);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  border-left: 3px solid #f59e0b;
+}
+
+.weather-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.weather-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  font-family: 'Courier New', monospace;
+}
+
+/* Medium screens - improved responsiveness */
+@media (max-width: 1200px) {
+  .position-row-new {
+    grid-template-columns: 45px 50px 1fr 70px 90px 40px;
+    padding: 0.6rem;
+  }
+
+  .dashboard-main-grid {
+    gap: 1rem;
+  }
+
+  .drivers-grid, .teams-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .driver-comparison-bar {
+    gap: 0.75rem;
+  }
+
+  .driver-name-comparison {
+    min-width: 100px;
+    max-width: 100px;
+  }
+
+  .radio-text, .update-message {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .driver-layout, .team-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .driver-info-column, .team-info-column {
+    max-width: 100%;
+  }
+  
+  .analytics-column {
+    max-width: 100%;
+  }
+  
+  .pitwall-column {
+    max-width: 100%;
+  }
+  
+  .race-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 1.5rem;
+  }
+  
+  .positions-panel {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  
+  .trackmap-panel {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .radio-panel {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+  
+  .updates-panel {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .telemetry-panel {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  
+  .weather-panel {
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+
+/* Mobile Dashboard Optimization */
+@media (max-width: 768px) {
+  /* Dashboard Main Grid - Stack vertically */
+  .dashboard-main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  /* Weather Header - More compact */
+  .weather-race-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .weather-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .weather-item-header {
+    padding: 0.5rem;
+  }
+  
+  .weather-label {
+    font-size: 0.7rem;
+  }
+  
+  .weather-value {
+    font-size: 0.9rem;
+  }
+  
+  /* Position Panel */
+  .positions-panel-new {
+    order: 1;
+  }
+  
+  .positions-list-new {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .position-row-new {
+    grid-template-columns: 40px 50px 1fr 60px;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .position-row-new .last-lap,
+  .position-row-new .sector-indicator {
+    display: none;
+  }
+  
+  .position-number {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .driver-code {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .team-name-short {
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .gap-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  
+  /* Track Map */
+  .trackmap-panel-new {
+    order: 2;
+  }
+  
+  .track-svg {
+    height: 180px;
+  }
+  
+  /* Telemetry and Radio Container */
+  .telemetry-radio-container {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .telemetry-panel-new {
+    order: 1;
+  }
+  
+  .telemetry-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .telemetry-item {
+    padding: 0.75rem;
+  }
+  
+  .driver-code-telemetry {
+    font-size: 0.8rem;
+  }
+  
+  .telemetry-data {
+    gap: 0.5rem;
+  }
+  
+  .data-label {
+    font-size: 0.6rem;
+  }
+  
+  .data-value {
+    font-size: 0.8rem;
+  }
+  
+  /* Radio Panel */
+  .radio-panel-new {
+    order: 2;
+  }
+  
+  .radio-messages-new {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .radio-message-new {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .radio-header-new {
+    margin-bottom: 0.25rem;
+  }
+  
+  .driver-code-radio {
+    font-size: 0.8rem;
+  }
+  
+  .radio-time {
+    font-size: 0.6rem;
+  }
+  
+  .radio-text {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  /* Race Updates */
+  .updates-panel-new {
+    order: 4;
+  }
+  
+  .updates-list-new {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .update-item-new {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .update-time {
+    font-size: 0.6rem;
+    min-width: 50px;
+  }
+  
+  .update-message {
+    font-size: 0.75rem;
+  }
+  
+  /* Panel Titles */
+  .panel-title {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  
+  /* Neon Panels */
+  .neon-panel {
+    padding: 0.75rem;
+    margin: 0;
+  }
+  /* Home Page Mobile */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-stats {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .home-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .dashboard-link, .news-section, .drivers-preview {
+    max-width: 100%;
+  }
+  
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  /* Navigation Mobile */
+  .nav-container {
+    padding: 1rem 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    min-width: 70px;
+    text-align: center;
+  }
+  
+  .main-content {
+    padding-top: 120px;
+  }
+  
+  /* Driver & Team Pages Mobile */
+  .driver-layout, .team-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .driver-info-column, .team-info-column {
+    order: 1;
+  }
+  
+  .analytics-column {
+    order: 2;
+  }
+  
+  .pitwall-column {
+    order: 3;
+  }
+  
+  .race-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .race-analytics-panel,
+  .analytics-panel,
+  .mini-pitwall {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  .driver-info-column .neon-panel,
+  .team-info-column .neon-panel {
+    padding: 1rem;
+  }
+  
+  .chat-container {
+    height: 250px;
+  }
+  
+  .chat-messages {
+    max-height: 180px;
+  }
+  
+  .chat-input-container {
+    padding: 0.75rem;
+  }
+  
+  .chat-input {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+  
+  .send-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Drivers & Teams Grid Pages */
+  .drivers-grid, .teams-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .driver-card, .team-card {
+    margin-bottom: 0.5rem;
+  }
+  
+  .driver-card-content, .team-card-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .driver-name, .team-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-drivers {
+    gap: 0.25rem;
+    margin: 0.75rem 0;
+  }
+  
+  .team-driver {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .driver-comparison-bar {
+    grid-template-columns: 60px 40px 1fr 60px;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .driver-name-small {
+    font-size: 0.75rem;
+  }
+  
+  .driver-percentage {
+    font-size: 0.65rem;
+  }
+  
+  .comparison-bar-container {
+    height: 6px;
+  }
+  
+  .driver-points-small {
+    font-size: 0.75rem;
+  }
+}
+
+/* iPhone Portrait and Very Small Screens */
+@media (max-width: 480px) {
+  /* Home Page */
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .hero-stats {
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    min-width: 70px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  /* Dashboard Ultra Compact */
+  .dashboard-main-grid {
+    gap: 0.75rem;
+    padding: 0.25rem;
+  }
+  
+  .weather-race-header {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .race-name {
+    font-size: 1.2rem;
+  }
+  
+  .session-time {
+    font-size: 0.8rem;
+  }
+  
+  .weather-header {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .weather-item-header {
+    padding: 0.25rem;
+  }
+  
+  .weather-label {
+    font-size: 0.6rem;
+  }
+  
+  .weather-value {
+    font-size: 0.75rem;
+  }
+  
+  .connection-status {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding-top: 0.5rem;
+  }
+  
+  /* Position Panel Ultra Compact */
+  .position-row-new {
+    grid-template-columns: 35px 45px 1fr 50px;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .position-number {
+    font-size: 0.7rem;
+  }
+  
+  .driver-code {
+    font-size: 0.8rem;
+  }
+  
+  .team-name-short {
+    font-size: 0.65rem;
+    max-width: 80px;
+  }
+  
+  .gap-time {
+    font-size: 0.6rem;
+  }
+  
+  /* Track Map Compact */
+  .track-svg {
+    height: 150px;
+  }
+  
+  .track-svg text {
+    font-size: 8px;
+  }
+  
+  /* Telemetry Ultra Compact */
+  .telemetry-grid-new {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-height: 150px;
+  }
+  
+  .telemetry-item {
+    padding: 0.5rem;
+  }
+  
+  .driver-code-telemetry {
+    font-size: 0.7rem;
+  }
+  
+  .telemetry-data {
+    gap: 0.25rem;
+  }
+  
+  .data-label {
+    font-size: 0.55rem;
+  }
+  
+  .data-value {
+    font-size: 0.7rem;
+  }
+  
+  /* Radio Ultra Compact */
+  .radio-messages-new {
+    max-height: 150px;
+  }
+  
+  .radio-message-new {
+    padding: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .driver-code-radio {
+    font-size: 0.7rem;
+  }
+  
+  .radio-time {
+    font-size: 0.55rem;
+  }
+  
+  .radio-text {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+  
+  /* Updates Ultra Compact */
+  .updates-list-new {
+    max-height: 150px;
+  }
+  
+  .update-item-new {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .update-time {
+    font-size: 0.55rem;
+    min-width: 45px;
+  }
+  
+  .update-message {
+    font-size: 0.7rem;
+  }
+  
+  /* Panel Titles Ultra Compact */
+  .panel-title {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  /* Navigation Ultra Compact */
+  .nav-container {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .nav-links {
+    gap: 0.15rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    min-width: 60px;
+  }
+  
+  .main-content {
+    padding-top: 110px;
+  }
+  
+  /* Driver/Team Pages Ultra Compact */
+  .driver-layout, .team-layout {
+    gap: 0.75rem;
+    padding: 0 0.25rem;
+  }
+  
+  .race-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .race-analytics-panel,
+  .analytics-panel,
+  .mini-pitwall {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .driver-info-column .neon-panel,
+  .team-info-column .neon-panel {
+    padding: 0.75rem;
+  }
+  
+  .chat-container {
+    height: 200px;
+  }
+  
+  .chat-messages {
+    max-height: 130px;
+  }
+  
+  .chat-input {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  .send-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Driver/Team Cards Ultra Compact */
+  .driver-card-content, .team-card-content {
+    padding: 0.75rem;
+  }
+  
+  .driver-name, .team-name {
+    font-size: 1rem;
+  }
+  
+  .team-drivers {
+    gap: 0.15rem;
+    margin: 0.5rem 0;
+  }
+  
+  .team-driver {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+  
+  .driver-comparison-bar {
+    grid-template-columns: 50px 35px 1fr 50px;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+  }
+  
+  .driver-name-small {
+    font-size: 0.65rem;
+  }
+  
+  .driver-percentage {
+    font-size: 0.6rem;
+  }
+  
+  .comparison-bar-container {
+    height: 5px;
+  }
+  
+  .driver-points-small {
+    font-size: 0.65rem;
+  }
+  
+  /* General Ultra Compact */
+  .neon-panel {
+    padding: 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 0.9rem;
+  }
+  
+  .chart-title {
+    font-size: 0.8rem;
+  }
+}
+  
+  .chat-container {
+    height: 250px;
+  }
+  
+  .race-stat-card {
+    padding: 0.75rem;
+  }
+  
+  .race-stat-card .stat-value {
+    font-size: 1.2rem;
+  }
+  
+  .track-insight {
+    padding: 1rem;
+  }
+  
+  .insight-title {
+    font-size: 0.9rem;
+  }
+  
+  .insight-text {
+    font-size: 0.8rem;
+  }
+  
+  .drivers-grid .driver-preview-card {
+    flex-direction: row;
+    padding: 1rem;
+  }
+  
+  .driver-position {
+    font-size: 1.2rem;
+    min-width: 35px;
+    padding: 0.5rem;
+  }
+  
+  .driver-name {
+    font-size: 0.9rem;
+  }
+  
+  .position-row {
+    grid-template-columns: 35px 50px 1fr 70px;
+    padding: 0.75rem;
+  }
+  
+  .position-number {
+    font-size: 1.2rem;
+  }
+  
+  .driver-code {
+    font-size: 1rem;
+  }
+  
+  .nav-links {
+    flex-direction: row;
+    width: auto;
+    gap: 0.25rem;
+    overflow-x: auto;
+  }
+  
+  .nav-link {
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .main-content {
+    padding-top: 180px;
+  }
+  
+  .live-dashboard-page,
+  .driver-page,
+  .team-page,
+  .drivers-page,
+  .teams-page,
+  .pitwall-page {
+    padding: 0.5rem;
+  }
+
+/* Large iPhone and iPhone Pro Max */
+@media (max-width: 428px) and (min-width: 390px) {
+  .race-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .countdown-number {
+    font-size: 1.4rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Very Small Screens - iPhone SE */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .countdown-number {
+    font-size: 1rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.5rem;
+  }
+  
+  .race-stat-card .stat-value {
+    font-size: 1rem;
+  }
+  
+  .driver-position {
+    font-size: 1rem;
+    min-width: 30px;
+  }
+  
+  .position-row {
+    grid-template-columns: 30px 45px 1fr 60px;
+    padding: 0.5rem;
+  }
+  
+  .main-content {
+    padding-top: 240px;
+  }
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Focus States */
+button:focus,
+input:focus {
+  outline: 2px solid var(--neon-blue);
+  outline-offset: 2px;
+}
+
+/* Additional Mobile Touch Improvements */
+@media (max-width: 768px) {
+  /* Ensure minimum touch target size of 44px */
+  .nav-link,
+  .driver-card,
+  .team-card,
+  .position-row-new,
+  .driver-info-row,
+  .send-button,
+  .chat-input {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Improve button and interactive element sizing */
+  .send-button {
+    min-width: 60px;
+    min-height: 44px;
+  }
+  
+  .nav-link {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Prevent zoom on inputs */
+  .chat-input,
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px;
+  }
+  
+  /* Improve scrolling performance */
+  .positions-list-new,
+  .telemetry-grid-new,
+  .radio-messages-new,
+  .updates-list-new,
+  .chat-messages {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  
+  /* Better clickable areas */
+  .position-row-new,
+  .driver-info-row,
+  .driver-card,
+  .team-card {
+    -webkit-tap-highlight-color: rgba(0, 210, 190, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Optimize images and graphics */
+  .track-svg,
+  .driver-image-placeholder,
+  .team-logo-placeholder {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better mobile typography */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Prevent horizontal scroll */
+  .live-dashboard-page,
+  .driver-page,
+  .team-page,
+  .drivers-page,
+  .teams-page,
+  .home-page {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* Better mobile spacing */
+  .neon-panel {
+    border-radius: 8px;
+  }
+  
+  /* Mobile-specific hover states (remove hover on touch devices) */
+  @media (hover: none) {
+    .position-row-new:hover,
+    .driver-info-row:hover,
+    .nav-link:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
