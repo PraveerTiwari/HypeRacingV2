@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import axios from 'axios';
 import { apiService } from '@/lib/api';
 import { TEAM_COLORS } from '@/lib/constants';
 import NeonPanel from '@/components/NeonPanel';
