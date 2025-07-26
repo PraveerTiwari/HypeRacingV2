@@ -20,7 +20,9 @@ export default function TeamPage() {
   const [sessionId] = useState(() => `team_${teamName.replace(/\s+/g, '_')}_${Date.now()}`);
 
   useEffect(() => {
-    fetchTeamDetails();
+    if (teamName) {
+      fetchTeamDetails();
+    }
   }, [teamName]);
 
   const fetchTeamDetails = async () => {
@@ -65,7 +67,7 @@ export default function TeamPage() {
     }
   };
 
-  if (teamDrivers.length === 0) {
+  if (!teamName || teamDrivers.length === 0) {
     return (
       <div className="loading-screen">
         <div className="loading-content">Loading team data...</div>
