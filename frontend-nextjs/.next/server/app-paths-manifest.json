@@ -1,1 +1,10 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/drivers/page": "app/drivers/page.js",
+  "/live/page": "app/live/page.js",
+  "/pitwall/page": "app/pitwall/page.js",
+  "/teams/[teamName]/page": "app/teams/[teamName]/page.js",
+  "/drivers/[driverId]/page": "app/drivers/[driverId]/page.js",
+  "/page": "app/page.js",
+  "/teams/page": "app/teams/page.js"
+}
