@@ -18,7 +18,9 @@ export default function DriverPage() {
   const [sessionId] = useState(() => `driver_${driverId}_${Date.now()}`);
 
   useEffect(() => {
-    fetchDriverDetails();
+    if (driverId) {
+      fetchDriverDetails();
+    }
   }, [driverId]);
 
   const fetchDriverDetails = async () => {
@@ -65,7 +67,7 @@ export default function DriverPage() {
     }
   };
 
-  if (!driver) {
+  if (!driverId || !driver) {
     return (
       <div className="loading-screen">
         <div className="loading-content">Loading driver data...</div>
