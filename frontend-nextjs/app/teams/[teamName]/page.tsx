@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 export default function TeamPage() {
   const params = useParams();
   const router = useRouter();
-  const teamName = decodeURIComponent(params.teamName as string);
+  const teamName = decodeURIComponent(params?.teamName as string || '');
   
   const [teamDrivers, setTeamDrivers] = useState<Driver[]>([]);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
