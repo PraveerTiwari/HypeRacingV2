@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import '@/styles/globals.css';
+import '@/styles/pitwall.css';
 
 interface RootLayoutProps {
   children: React.ReactNode;
